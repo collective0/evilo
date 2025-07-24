@@ -4,14 +4,14 @@ const LogoCarousel = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const logos = [
-    "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=60&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=120&h=60&fit=crop&auto=format", 
-    "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=120&h=60&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=120&h=60&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=120&h=60&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=120&h=60&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=120&h=60&fit=crop&auto=format",
-    "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=120&h=60&fit=crop&auto=format"
+    "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/d/d5/ISO_27001_logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/9/9a/SOC_2_Type_II_logo.png",
+    "https://upload.wikimedia.org/wikipedia/commons/1/17/ISO_9001_logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/8d/GDPR_logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/69/HIPAA_logo.svg"
   ];
 
   // Duplicate logos for seamless infinite scroll
@@ -51,7 +51,7 @@ const LogoCarousel = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <p className="text-gray-400 text-sm uppercase tracking-wider">
-            Trusted by Industry Leaders
+            Industry Compliant
           </p>
         </div>
         
