@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import FloatingStars from "@/components/FloatingStars";
+import LogoCarousel from "@/components/LogoCarousel";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Services />
+      <LogoCarousel />
       <About />
       <Contact />
     </div>
