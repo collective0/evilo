@@ -32,7 +32,7 @@ const CertificationLogos = () => {
               <img 
                 src={cert.src} 
                 alt={cert.alt}
-                className="w-32 h-32 object-contain filter grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-56 h-56 object-contain filter grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
           ))}
