@@ -6,10 +6,10 @@ const InteractiveVisual = () => {
   const [activeNode, setActiveNode] = useState(0);
 
   const nodes = [
-    { icon: Brain, label: "AI Intelligence", color: "from-blue-800 to-blue-700" },
-    { icon: Zap, label: "Automation", color: "from-purple-800 to-purple-700" },
-    { icon: Target, label: "Precision", color: "from-indigo-800 to-indigo-700" },
-    { icon: Sparkles, label: "Innovation", color: "from-violet-800 to-violet-700" }
+    { icon: Brain, label: "AI Intelligence", color: "from-blue-700 to-blue-600" },
+    { icon: Zap, label: "Automation", color: "from-slate-600 to-slate-500" },
+    { icon: Target, label: "Precision", color: "from-blue-600 to-slate-600" },
+    { icon: Sparkles, label: "Innovation", color: "from-slate-500 to-blue-500" }
   ];
 
   useEffect(() => {
@@ -23,8 +23,8 @@ const InteractiveVisual = () => {
     <div className="relative w-full h-96 flex items-center justify-center">
       {/* Central Hub */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-24 h-24 bg-gradient-to-br from-blue-800/20 to-purple-800/20 rounded-full border-2 border-blue-600/30 flex items-center justify-center backdrop-blur-sm">
-          <div className="w-16 h-16 bg-gradient-to-br from-blue-800 to-purple-800 rounded-full flex items-center justify-center">
+        <div className="w-24 h-24 bg-gradient-to-br from-blue-700/20 to-slate-600/20 rounded-full border-2 border-blue-600/30 flex items-center justify-center backdrop-blur-sm">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-700 to-slate-600 rounded-full flex items-center justify-center">
             <Brain className="text-white" size={24} />
           </div>
         </div>

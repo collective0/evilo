@@ -42,19 +42,19 @@ const Hero = () => {
             <div className="flex items-center space-x-4 bg-slate-800/50 backdrop-blur-sm rounded-full px-6 py-3 border border-blue-900/40">
               <Bot className="text-blue-400" size={24} />
               <span className="text-gray-300">AI-Powered Automation</span>
-              <Zap className="text-purple-400" size={24} />
+              <Zap className="text-slate-400" size={24} />
             </div>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Transform Your Business with
             <br />
-            <span className="bg-gradient-to-r from-blue-800 via-purple-800 to-blue-800 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-600 via-slate-400 to-blue-600 bg-clip-text text-transparent">
               AI Automation
             </span>
             <span className="text-white"> to </span>
             <span 
-              className={`bg-gradient-to-r from-blue-800 via-purple-800 to-blue-800 bg-clip-text text-transparent inline-block w-[400px] text-left whitespace-nowrap ${
+              className={`bg-gradient-to-r from-blue-600 via-slate-400 to-blue-600 bg-clip-text text-transparent inline-block w-[400px] text-left whitespace-nowrap ${
                 isAnimating ? 'animate-fade-out' : showFadeIn ? 'animate-fade-in' : ''
               }`}
             >
@@ -71,7 +71,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               onClick={handleGetStarted}
-              className="bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group transition-all duration-300 hover:scale-105 glow-border border border-blue-600/50"
+              className="bg-gradient-to-r from-blue-600 to-slate-500 hover:from-blue-500 hover:to-slate-400 text-white px-8 py-4 text-lg group transition-all duration-300 hover:scale-105 glow-border border border-blue-600/50"
             >
               Book a Demo
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />

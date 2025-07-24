@@ -29,12 +29,12 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/5 via-transparent to-blue-900/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-700/5 via-transparent to-blue-900/5"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            What Our <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Clients Say</span>
+            What Our <span className="bg-gradient-to-r from-slate-400 to-blue-400 bg-clip-text text-transparent">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Don't just take our word for it. See how we've helped businesses like yours achieve remarkable results.
@@ -43,9 +43,9 @@ const Testimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-slate-800/40 backdrop-blur-sm border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:scale-105 relative overflow-hidden">
+            <Card key={index} className="bg-slate-800/40 backdrop-blur-sm border border-slate-500/20 hover:border-slate-400/40 transition-all duration-300 hover:scale-105 relative overflow-hidden">
               <div className="absolute top-4 right-4">
-                <Quote className="text-purple-400/30" size={32} />
+                <Quote className="text-slate-400/30" size={32} />
               </div>
               
               <CardHeader>
@@ -53,7 +53,7 @@ const Testimonials = () => {
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-purple-500/30"
+                    className="w-16 h-16 rounded-full object-cover border-2 border-slate-500/30"
                   />
                   <div>
                     <h3 className="text-white font-semibold text-lg">{testimonial.name}</h3>
