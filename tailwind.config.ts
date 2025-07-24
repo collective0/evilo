@@ -18,10 +18,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				inter: ['Inter', 'sans-serif'],
-				mono: ['JetBrains Mono', 'monospace'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -30,8 +26,7 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
-					glow: 'hsl(var(--primary-glow))'
+					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -68,20 +63,6 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
-			backgroundImage: {
-				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-surface': 'var(--gradient-surface)',
-				'gradient-dark': 'var(--gradient-dark)',
-				'gradient-glow': 'var(--gradient-glow)',
-			},
-			boxShadow: {
-				'elegant': 'var(--shadow-elegant)',
-				'glow': 'var(--shadow-glow)',
-				'soft': 'var(--shadow-soft)',
-			},
-			backdropBlur: {
-				'glass': '20px',
-			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -107,20 +88,7 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'float': 'float 8s ease-in-out infinite',
-				'shuffle': 'shuffle 3s ease-in-out infinite',
-				'slide-up': 'slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-				'slide-down': 'slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-				'slide-in-left': 'slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-				'slide-in-right': 'slide-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-				'scale-in': 'scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-				'rotate-in': 'rotate-in 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-				'gradient-shift': 'gradient-shift 3s ease infinite',
-				'text-shimmer': 'text-shimmer 3s linear infinite',
-				'orbit': 'orbit 20s linear infinite',
-				'magnetic': 'magnetic-hover 0.3s ease-in-out',
+				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},

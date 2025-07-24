@@ -9,16 +9,14 @@ import LogoCarousel from "@/components/LogoCarousel";
 
 const Index = () => {
   return (
-    <div className="min-h-screen dark relative overflow-hidden">
-      <div className="gradient-dark min-h-screen">
-        <FloatingStars />
-        <Navigation />
-        <Hero />
-        <LogoCarousel />
-        <Services />
-        <About />
-        <Contact />
-      </div>
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      <FloatingStars />
+      <Navigation />
+      <Hero />
+      <LogoCarousel />
+      <Services />
+      <About />
+      <Contact />
     </div>
   );
 };
