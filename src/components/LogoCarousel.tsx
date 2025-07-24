@@ -37,7 +37,12 @@ const LogoCarousel = () => {
         <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
         {/* Infinite scrolling container */}
-        <div className="flex animate-[infiniteScroll_30s_linear_infinite] w-fit">
+        <div 
+          className="flex w-fit"
+          style={{
+            animation: 'infiniteScroll 30s linear infinite'
+          }}
+        >
           {duplicatedLogos.map((logo, index) => (
             <div 
               key={index}
