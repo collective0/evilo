@@ -10,7 +10,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Get In <span className="bg-gradient-to-r from-blue-800 to-purple-800 bg-clip-text text-transparent">Touch</span>
+            Get In <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent">Touch</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to transform your business with AI? Let's discuss how we can help you achieve your goals.
@@ -77,7 +77,7 @@ const Contact = () => {
                 />
               </div>
               
-              <Button className="w-full bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-700 hover:to-purple-700 text-white group">
+              <Button className="w-full bg-gradient-to-r from-blue-600 to-slate-500 hover:from-blue-500 hover:to-slate-400 text-white group">
                 Send Message
                 <Send className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </Button>
@@ -90,7 +90,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-800/20 to-purple-800/20 rounded-lg flex items-center justify-center border border-blue-600/20">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-lg flex items-center justify-center border border-blue-600/20">
                     <Mail className="text-blue-400" size={20} />
                   </div>
                   <div>
@@ -100,7 +100,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-800/20 to-purple-800/20 rounded-lg flex items-center justify-center border border-blue-600/20">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-lg flex items-center justify-center border border-blue-600/20">
                     <Phone className="text-blue-400" size={20} />
                   </div>
                   <div>
@@ -110,7 +110,7 @@ const Contact = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-800/20 to-purple-800/20 rounded-lg flex items-center justify-center border border-blue-600/20">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-lg flex items-center justify-center border border-blue-600/20">
                     <MapPin className="text-blue-400" size={20} />
                   </div>
                   <div>
@@ -125,14 +125,14 @@ const Contact = () => {
               <CardContent className="p-6 text-center">
                 <div className="flex items-center justify-center mb-4">
                   <div className="relative">
-                    <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-800 via-purple-800 to-blue-800 bg-clip-text text-transparent">
+                    <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-slate-500 to-blue-600 bg-clip-text text-transparent">
                       Evilo
                     </h1>
                     <div className="absolute -inset-2 flex items-center justify-center">
                       <Sparkles className="text-blue-400/30 animate-pulse" size={16} />
                     </div>
                     <div className="absolute -top-2 -right-2">
-                      <div className="w-2 h-2 bg-purple-400/60 rounded-full animate-pulse delay-300"></div>
+                      <div className="w-2 h-2 bg-slate-400/60 rounded-full animate-pulse delay-300"></div>
                     </div>
                     <div className="absolute -bottom-2 -left-2">
                       <div className="w-2 h-2 bg-blue-400/60 rounded-full animate-pulse delay-700"></div>

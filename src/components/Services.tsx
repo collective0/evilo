@@ -23,7 +23,7 @@ const Services = () => {
             </div>
           </div>
           <div className="absolute top-2 right-2 w-3 h-3 bg-blue-400 rounded opacity-60 animate-pulse"></div>
-          <div className="absolute bottom-2 left-2 w-2 h-2 bg-purple-400 rounded opacity-40 animate-pulse delay-500"></div>
+          <div className="absolute bottom-2 left-2 w-2 h-2 bg-slate-400 rounded opacity-40 animate-pulse delay-500"></div>
           <div className="absolute top-1/2 left-2 w-2 h-2 bg-blue-300 rounded opacity-50 animate-pulse delay-1000"></div>
         </div>
       )
@@ -55,8 +55,8 @@ const Services = () => {
             <Zap className="text-blue-400" size={16} />
             <span className="text-white text-sm">Trigger</span>
           </div>
-          <div className="flex items-center space-x-2 bg-slate-800/50 rounded-lg p-2 border border-purple-400/20">
-            <div className="w-3 h-3 bg-purple-400 rounded"></div>
+          <div className="flex items-center space-x-2 bg-slate-800/50 rounded-lg p-2 border border-slate-400/20">
+            <div className="w-3 h-3 bg-slate-400 rounded"></div>
             <span className="text-gray-300 text-sm">Prompts</span>
           </div>
           <div className="flex items-center space-x-2 bg-slate-800/50 rounded-lg p-2 border border-blue-300/20">
@@ -90,7 +90,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Create Your Custom <span className="bg-gradient-to-r from-blue-800 to-purple-800 bg-clip-text text-transparent">AI Employee</span>
+            Create Your Custom <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent">AI Employee</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Tell us what you need, and we'll create a custom AI to make your work faster and easier.
@@ -101,7 +101,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card key={index} className="bg-slate-800/40 backdrop-blur-sm border border-blue-800/20 hover:border-blue-600/40 transition-all duration-300 hover:scale-105 group">
               <CardHeader>
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-800/20 to-purple-800/20 rounded-xl mb-4 group-hover:from-blue-700/30 group-hover:to-purple-700/30 transition-all duration-300">
+                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-xl mb-4 group-hover:from-blue-500/30 group-hover:to-slate-400/30 transition-all duration-300">
                   <service.icon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={32} />
                 </div>
                 <CardTitle className="text-white text-xl mb-2">{service.title}</CardTitle>
@@ -121,7 +121,7 @@ const Services = () => {
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Not sure if we have a solution for you? 
-              <span className="bg-gradient-to-r from-blue-800 to-purple-800 bg-clip-text text-transparent"> Ask our system</span>
+              <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent"> Ask our system</span>
             </h3>
             <p className="text-gray-300">
               Get instant answers about our AI automation capabilities
@@ -152,7 +152,7 @@ const Services = () => {
                 }`}>
                   <div className="h-full bg-slate-900/50 rounded-lg p-4 overflow-y-auto border border-slate-700/50">
                     <div className="flex items-start space-x-3 mb-4">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-800 to-purple-800 rounded-full flex items-center justify-center">
+                      <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-slate-500 rounded-full flex items-center justify-center">
                         <Zap size={16} className="text-white" />
                       </div>
                       <div className="bg-slate-700/50 rounded-lg px-4 py-2 max-w-xs">
@@ -174,7 +174,7 @@ const Services = () => {
                     onFocus={handleInputFocus}
                     onBlur={handleInputBlur}
                   />
-                  <Button className={`bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-700 hover:to-purple-700 text-white transition-all duration-300 ${
+                  <Button className={`bg-gradient-to-r from-blue-600 to-slate-500 hover:from-blue-500 hover:to-slate-400 text-white transition-all duration-300 ${
                     isExpanded ? 'px-6' : 'px-3'
                   }`}>
                     <Send size={18} />

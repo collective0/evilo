@@ -17,7 +17,7 @@ const About = () => {
           {/* Left Column - Content */}
           <div className="animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Leading the <span className="bg-gradient-to-r from-blue-800 to-purple-800 bg-clip-text text-transparent">AI Revolution</span>
+              Leading the <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent">AI Revolution</span>
             </h2>
             
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
@@ -34,8 +34,8 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3 bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-purple-800/20">
-                <Award className="text-purple-400 flex-shrink-0" size={24} />
+              <div className="flex items-center space-x-3 bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-slate-600/20">
+                <Award className="text-slate-400 flex-shrink-0" size={24} />
                 <div>
                   <h3 className="text-white font-semibold">Proven Results</h3>
                   <p className="text-gray-400 text-sm">Measurable ROI & growth</p>
@@ -50,8 +50,8 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="flex items-center space-x-3 bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-purple-800/20">
-                <CheckCircle className="text-purple-400 flex-shrink-0" size={24} />
+              <div className="flex items-center space-x-3 bg-slate-800/30 backdrop-blur-sm rounded-lg p-4 border border-slate-600/20">
+                <CheckCircle className="text-slate-400 flex-shrink-0" size={24} />
                 <div>
                   <h3 className="text-white font-semibold">Quality</h3>
                   <p className="text-gray-400 text-sm">Enterprise-grade reliability</p>

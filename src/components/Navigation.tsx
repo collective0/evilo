@@ -18,7 +18,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-800 via-purple-800 to-blue-800 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-slate-500 to-blue-600 bg-clip-text text-transparent">
               Evilo
             </h1>
           </div>
@@ -39,7 +39,7 @@ const Navigation = () => {
             </a>
             <Button 
               onClick={handleGetStarted}
-              className="bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-700 hover:to-purple-700 text-white"
+              className="bg-gradient-to-r from-blue-600 to-slate-500 hover:from-blue-500 hover:to-slate-400 text-white"
             >
               Get Started
             </Button>
@@ -96,7 +96,7 @@ const Navigation = () => {
                     handleGetStarted();
                     setIsOpen(false);
                   }}
-                  className="w-full bg-gradient-to-r from-blue-800 to-purple-800 hover:from-blue-700 hover:to-purple-700 text-white"
+                  className="w-full bg-gradient-to-r from-blue-600 to-slate-500 hover:from-blue-500 hover:to-slate-400 text-white"
                 >
                   Get Started
                 </Button>
