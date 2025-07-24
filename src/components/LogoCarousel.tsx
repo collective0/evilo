@@ -1,53 +1,25 @@
-import { useEffect, useRef } from "react";
-
-const LogoCarousel = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
+const CertificationLogos = () => {
   const logos = [
-    "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/d/d5/ISO_27001_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/9/9a/SOC_2_Type_II_logo.png",
-    "https://upload.wikimedia.org/wikipedia/commons/1/17/ISO_9001_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/8/8d/GDPR_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/6/69/HIPAA_logo.svg"
+    {
+      src: "/lovable-uploads/12ddd077-24cf-4fd6-a615-5416b102f3db.png",
+      alt: "ISO 27001:2013 Certified"
+    },
+    {
+      src: "/lovable-uploads/284fd4d3-9fa0-468c-8039-48cf1b139037.png", 
+      alt: "AICPA SOC Certified"
+    },
+    {
+      src: "/lovable-uploads/05bf9a3a-5d15-4370-af0f-5a9a0654f343.png",
+      alt: "CSA Cloud Security Alliance"
+    },
+    {
+      src: "/lovable-uploads/5cba604a-9ad9-4932-830a-d64e4f0ec3b5.png",
+      alt: "CyberSecure Canada Certified"
+    }
   ];
 
-  // Duplicate logos for seamless infinite scroll
-  const duplicatedLogos = [...logos, ...logos, ...logos];
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
-    let scrollPosition = 0;
-    const scrollSpeed = 0.5;
-
-    const animate = () => {
-      scrollPosition += scrollSpeed;
-      
-      // Reset position when we've scrolled through one set of logos
-      if (scrollPosition >= scrollContainer.scrollWidth / 3) {
-        scrollPosition = 0;
-      }
-      
-      scrollContainer.scrollLeft = scrollPosition;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    };
-  }, []);
-
   return (
-    <section className="py-12 relative z-10 overflow-hidden">
+    <section className="py-12 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <p className="text-gray-400 text-sm uppercase tracking-wider">
@@ -55,19 +27,16 @@ const LogoCarousel = () => {
           </p>
         </div>
         
-        <div 
-          ref={scrollRef}
-          className="flex overflow-hidden space-x-12 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-        >
-          {duplicatedLogos.map((logo, index) => (
+        <div className="flex justify-center items-center gap-8 flex-wrap">
+          {logos.map((logo, index) => (
             <div 
               key={index}
-              className="flex-shrink-0 flex items-center justify-center h-16 w-32 opacity-60 hover:opacity-100 transition-opacity duration-300"
+              className="flex items-center justify-center h-20 w-20 opacity-80 hover:opacity-100 transition-opacity duration-300"
             >
               <img 
-                src={logo} 
-                alt={`Partner logo ${(index % logos.length) + 1}`}
-                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                src={logo.src} 
+                alt={logo.alt}
+                className="max-w-full max-h-full object-contain"
               />
             </div>
           ))}
@@ -77,4 +46,4 @@ const LogoCarousel = () => {
   );
 };
 
-export default LogoCarousel;
+export default CertificationLogos;
