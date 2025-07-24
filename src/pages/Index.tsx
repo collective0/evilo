@@ -1,6 +1,7 @@
 
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import Benefits from "@/components/Benefits";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
@@ -15,6 +16,7 @@ const Index = () => {
       <Hero />
       <LogoCarousel />
       <Services />
+      <Benefits />
       <About />
       <Contact />
     </div>
