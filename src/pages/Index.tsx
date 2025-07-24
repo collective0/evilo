@@ -15,10 +15,9 @@ const Index = () => {
       <FloatingStars />
       <Navigation />
       <Hero />
-      
+      <CompanyCarousel />
       <Services />
       <Benefits />
-      <CompanyCarousel />
       <About />
       <Contact />
     </div>
