@@ -1,15 +1,15 @@
 const CertificationLogos = () => {
   const certifications = [
     {
-      src: "/lovable-uploads/6261d697-1106-45c1-956b-6bd8d2ed72e3.png",
+      src: "/lovable-uploads/b2f084c7-fe55-46a0-b73c-59b059dcfb1e.png",
       alt: "ISO 27001:2013 Certified"
     },
     {
-      src: "/lovable-uploads/fbff4337-659f-4af2-bdd0-409fddd155fb.png",
+      src: "/lovable-uploads/34aeecfb-9ca4-4f38-b093-e110db98fc26.png",
       alt: "AICPA SOC Certified"
     },
     {
-      src: "/lovable-uploads/4bdb1727-6f06-44ac-aa5c-323de9d425c0.png",
+      src: "/lovable-uploads/16788097-c39d-4ba3-95e4-38f75df09cde.png",
       alt: "CyberSecure Canada Certified"
     }
   ];
