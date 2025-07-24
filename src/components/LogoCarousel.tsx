@@ -1,19 +1,24 @@
+import iso27001Cert from "@/assets/iso-27001-cert.png";
+import aicpaSocCert from "@/assets/aicpa-soc-cert.png";
+import csaCert from "@/assets/csa-cert.png";
+import cybersecureCanadaCert from "@/assets/cybersecure-canada-cert.png";
+
 const CertificationLogos = () => {
   const logos = [
     {
-      src: "/lovable-uploads/12ddd077-24cf-4fd6-a615-5416b102f3db.png",
+      src: iso27001Cert,
       alt: "ISO 27001:2013 Certified"
     },
     {
-      src: "/lovable-uploads/284fd4d3-9fa0-468c-8039-48cf1b139037.png", 
+      src: aicpaSocCert, 
       alt: "AICPA SOC Certified"
     },
     {
-      src: "/lovable-uploads/05bf9a3a-5d15-4370-af0f-5a9a0654f343.png",
+      src: csaCert,
       alt: "CSA Cloud Security Alliance"
     },
     {
-      src: "/lovable-uploads/5cba604a-9ad9-4932-830a-d64e4f0ec3b5.png",
+      src: cybersecureCanadaCert,
       alt: "CyberSecure Canada Certified"
     }
   ];
