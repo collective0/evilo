@@ -187,3 +187,13 @@ All colors MUST be HSL.
 .animate-fade-in {
   animation: fade-in 0.6s ease-out;
 }
+
+/* Infinite scroll animation */
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}

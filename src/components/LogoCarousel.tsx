@@ -1,38 +1,52 @@
-const CertificationLogos = () => {
-  const certifications = [
+const LogoCarousel = () => {
+  const logos = [
     {
-      src: "/lovable-uploads/b2f084c7-fe55-46a0-b73c-59b059dcfb1e.png",
-      alt: "ISO 27001:2013 Certified"
+      src: "/lovable-uploads/6334c7cc-e4d1-427e-bffb-9694248e985a.png",
+      alt: "ZIN"
     },
     {
-      src: "/lovable-uploads/34aeecfb-9ca4-4f38-b093-e110db98fc26.png",
-      alt: "AICPA SOC Certified"
+      src: "/lovable-uploads/a2bf6b94-c2bc-47c8-ad9a-a1fa4a0aecd9.png",
+      alt: "LABDAKO events"
     },
     {
-      src: "/lovable-uploads/16788097-c39d-4ba3-95e4-38f75df09cde.png",
-      alt: "CyberSecure Canada Certified"
+      src: "/lovable-uploads/3e2ed7a1-dbf7-455a-95f0-52fc02e29898.png",
+      alt: "hebe concept"
+    },
+    {
+      src: "/lovable-uploads/3cbf24cd-f591-4f90-aeac-0b58c492e1af.png",
+      alt: "STIRNU BUKS"
+    },
+    {
+      src: "/lovable-uploads/ddce899a-2380-4eec-ab42-43b6102cb983.png",
+      alt: "BOSCH Service"
+    },
+    {
+      src: "/lovable-uploads/876d0c99-ab67-4d32-b385-cff4a2c7f672.png",
+      alt: "TOPAZOS"
     }
   ];
 
+  // Duplicate logos for seamless infinite scroll
+  const duplicatedLogos = [...logos, ...logos, ...logos];
+
   return (
-    <section className="py-8 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-4">
-          <p className="text-gray-400 text-sm uppercase tracking-wider">
-            Industry Compliant
-          </p>
-        </div>
+    <section className="py-12 relative z-10 overflow-hidden">
+      <div className="relative">
+        {/* Fading edges */}
+        <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
         
-        <div className="flex justify-center items-center gap-8 py-2">
-          {certifications.map((cert, index) => (
+        {/* Infinite scrolling container */}
+        <div className="flex animate-[infiniteScroll_30s_linear_infinite] w-fit">
+          {duplicatedLogos.map((logo, index) => (
             <div 
               key={index}
-              className="flex items-center justify-center opacity-90 hover:opacity-100 transition-all duration-500"
+              className="flex items-center justify-center mx-8 min-w-[120px] h-16 opacity-60 hover:opacity-100 transition-opacity duration-300"
             >
               <img 
-                src={cert.src} 
-                alt={cert.alt}
-                className="w-56 h-56 object-contain filter grayscale hover:grayscale-0 transition-all duration-500"
+                src={logo.src} 
+                alt={logo.alt}
+                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
               />
             </div>
           ))}
@@ -42,4 +56,4 @@ const CertificationLogos = () => {
   );
 };
 
-export default CertificationLogos;
+export default LogoCarousel;
