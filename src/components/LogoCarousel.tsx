@@ -1,78 +1,77 @@
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { Card } from "@/components/ui/card";
+import { useEffect, useRef } from "react";
 
 const LogoCarousel = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const logos = [
-    {
-      name: "TechCorp",
-      url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=200&h=100&fit=crop&auto=format"
-    },
-    {
-      name: "InnovateLab", 
-      url: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=200&h=100&fit=crop&auto=format"
-    },
-    {
-      name: "FutureTech",
-      url: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=200&h=100&fit=crop&auto=format"
-    },
-    {
-      name: "DigitalFlow",
-      url: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=200&h=100&fit=crop&auto=format"
-    },
-    {
-      name: "CloudSystems",
-      url: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=200&h=100&fit=crop&auto=format"
-    },
-    {
-      name: "DataStream",
-      url: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=200&h=100&fit=crop&auto=format"
-    },
-    {
-      name: "SmartCore",
-      url: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4?w=200&h=100&fit=crop&auto=format"
-    },
-    {
-      name: "NextLevel",
-      url: "https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?w=200&h=100&fit=crop&auto=format"
-    }
+    "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=60&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=120&h=60&fit=crop&auto=format", 
+    "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=120&h=60&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=120&h=60&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=120&h=60&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=120&h=60&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=120&h=60&fit=crop&auto=format",
+    "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=120&h=60&fit=crop&auto=format"
   ];
 
+  // Duplicate logos for seamless infinite scroll
+  const duplicatedLogos = [...logos, ...logos, ...logos];
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    let animationId: number;
+    let scrollPosition = 0;
+    const scrollSpeed = 0.5;
+
+    const animate = () => {
+      scrollPosition += scrollSpeed;
+      
+      // Reset position when we've scrolled through one set of logos
+      if (scrollPosition >= scrollContainer.scrollWidth / 3) {
+        scrollPosition = 0;
+      }
+      
+      scrollContainer.scrollLeft = scrollPosition;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-16 relative z-10">
+    <section className="py-12 relative z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Trusted by <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent">Industry Leaders</span>
-          </h2>
-          <p className="text-gray-300">
-            Join thousands of companies already using our AI solutions
+        <div className="text-center mb-8">
+          <p className="text-gray-400 text-sm uppercase tracking-wider">
+            Trusted by Industry Leaders
           </p>
         </div>
         
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
+        <div 
+          ref={scrollRef}
+          className="flex overflow-hidden space-x-12 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {logos.map((logo, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5">
-                <Card className="bg-slate-800/40 backdrop-blur-sm border border-slate-600/20 hover:border-blue-600/40 transition-all duration-300 p-6 h-24 flex items-center justify-center group">
-                  <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                    <img 
-                      src={logo.url} 
-                      alt={`${logo.name} logo`}
-                      className="max-w-full max-h-full object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300 grayscale group-hover:grayscale-0"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-slate-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+          {duplicatedLogos.map((logo, index) => (
+            <div 
+              key={index}
+              className="flex-shrink-0 flex items-center justify-center h-16 w-32 opacity-60 hover:opacity-100 transition-opacity duration-300"
+            >
+              <img 
+                src={logo} 
+                alt={`Partner logo ${(index % logos.length) + 1}`}
+                className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

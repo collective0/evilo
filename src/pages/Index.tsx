@@ -13,8 +13,8 @@ const Index = () => {
       <FloatingStars />
       <Navigation />
       <Hero />
-      <Services />
       <LogoCarousel />
+      <Services />
       <About />
       <Contact />
     </div>
