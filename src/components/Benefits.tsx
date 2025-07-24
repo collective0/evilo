@@ -4,32 +4,32 @@ import { TrendingUp, Users, Clock, DollarSign, BarChart3, Zap } from "lucide-rea
 const Benefits = () => {
   const benefits = [
     {
-      icon: <TrendingUp className="w-8 h-8 text-blue-400" />,
+      icon: <TrendingUp className="w-8 h-8 text-gray-400" />,
       title: "Increased Productivity",
       description: "Gain actionable insights with AI-driven analytics to improve decision-making and strategy."
     },
     {
-      icon: <Users className="w-8 h-8 text-purple-400" />,
+      icon: <Users className="w-8 h-8 text-gray-400" />,
       title: "Better Customer Experience",
       description: "Personalized AI interactions improve response times, customer engagement, and overall satisfaction."
     },
     {
-      icon: <Clock className="w-8 h-8 text-green-400" />,
+      icon: <Clock className="w-8 h-8 text-gray-400" />,
       title: "24/7 Availability",
       description: "AI-powered systems operate around the clock, ensuring seamless support and execution without downtime."
     },
     {
-      icon: <DollarSign className="w-8 h-8 text-yellow-400" />,
+      icon: <DollarSign className="w-8 h-8 text-gray-400" />,
       title: "Cost Reduction",
       description: "AI automation minimizes manual work, cuts operational costs, and optimizes resource allocation for better profitability."
     },
     {
-      icon: <BarChart3 className="w-8 h-8 text-cyan-400" />,
+      icon: <BarChart3 className="w-8 h-8 text-gray-400" />,
       title: "Data-Driven Insights",
       description: "Leverage AI to analyze vast data sets, identify trends, and make smarter, faster, and more accurate business decisions."
     },
     {
-      icon: <Zap className="w-8 h-8 text-orange-400" />,
+      icon: <Zap className="w-8 h-8 text-gray-400" />,
       title: "Scalability & Growth",
       description: "AI adapts to your business needs, allowing you to scale efficiently without increasing workload or costs."
     }
@@ -42,7 +42,7 @@ const Benefits = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             The Key Benefits of AI for Your{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               Business Growth
             </span>
           </h2>
@@ -71,13 +71,6 @@ const Benefits = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 cursor-pointer">
-            Ready to Transform Your Business?
-          </div>
         </div>
       </div>
     </section>
