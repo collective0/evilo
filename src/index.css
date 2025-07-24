@@ -197,3 +197,13 @@ All colors MUST be HSL.
     transform: translateX(-33.333%);
   }
 }
+
+/* Company carousel scroll animation */
+@keyframes companyScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
