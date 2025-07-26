@@ -166,11 +166,9 @@ const Contact = () => {
               <CardContent className="p-6 text-center">
                 <div className="flex items-center justify-center mb-4">
                   <div className="relative">
-                    <img 
-                      src="/lovable-uploads/57427081-c9e9-4056-be06-69b42902bc71.png" 
-                      alt="Evilo Business Solutions" 
-                      className="h-16 w-auto"
-                    />
+                    <div className="h-16 w-40 bg-slate-700/50 rounded flex items-center justify-center border border-blue-600/30">
+                      <span className="text-blue-400 text-lg font-medium">LOGO</span>
+                    </div>
                     <div className="absolute -inset-2 flex items-center justify-center">
                       <Sparkles className="text-blue-400/30 animate-pulse" size={16} />
                     </div>
