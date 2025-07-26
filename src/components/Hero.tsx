@@ -2,11 +2,13 @@
 import { ArrowRight, Bot, Zap, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [showFadeIn, setShowFadeIn] = useState(false);
+  const isMobile = useIsMobile();
   const rotatingTexts = ["Cut Costs", "Save Time", "Grow Sales"];
 
   useEffect(() => {
@@ -54,7 +56,9 @@ const Hero = () => {
             </span>
             <span className="text-white"> to </span>
             <span 
-              className={`bg-gradient-to-r from-blue-600 via-slate-400 to-blue-600 bg-clip-text text-transparent inline-block w-[400px] text-left whitespace-nowrap ${
+              className={`bg-gradient-to-r from-blue-600 via-slate-400 to-blue-600 bg-clip-text text-transparent inline-block ${
+                isMobile ? 'w-32 text-center' : 'w-40 sm:w-44 md:w-48 lg:w-52 text-center'
+              } ${
                 isAnimating ? 'animate-fade-out' : showFadeIn ? 'animate-fade-in' : ''
               }`}
             >
