@@ -6,7 +6,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import FloatingStars from "@/components/FloatingStars";
-import CompanyCarousel from "@/components/CompanyCarousel";
+
 
 
 const Index = () => {
@@ -15,7 +15,7 @@ const Index = () => {
       <FloatingStars />
       <Navigation />
       <Hero />
-      <CompanyCarousel />
+      
       <Services />
       <Benefits />
       <About />
