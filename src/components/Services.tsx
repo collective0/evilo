@@ -4,10 +4,28 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+
+interface ChatMessage {
+  id: string;
+  text: string;
+  isBot: boolean;
+  timestamp: Date;
+}
 
 const Services = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      id: "1",
+      text: "Hello! I'm here to help you understand how our AI solutions can benefit your business. What would you like to know?",
+      isBot: true,
+      timestamp: new Date(),
+    },
+  ]);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const services = [
     {
@@ -85,6 +103,73 @@ const Services = () => {
     }
   };
 
+  const sendMessage = async () => {
+    if (!inputValue.trim() || isLoading) return;
+
+    const userMessage: ChatMessage = {
+      id: Date.now().toString(),
+      text: inputValue,
+      isBot: false,
+      timestamp: new Date(),
+    };
+
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("https://collectiveworld.app.n8n.cloud/webhook/support-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: userMessage.text,
+          timestamp: userMessage.timestamp.toISOString(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      const botMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        text: data.response || data.message || "Thank you for your message. Our team will get back to you soon!",
+        isBot: true,
+        timestamp: new Date(),
+      };
+
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      const errorMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        text: "Sorry, I'm having trouble connecting right now. Please try again later or contact us directly.",
+        isBot: true,
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, errorMessage]);
+      
+      toast({
+        title: "Connection Error",
+        description: "Unable to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+
   return (
     <section id="services" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -151,15 +236,44 @@ const Services = () => {
                   isExpanded ? 'h-64 opacity-100 mb-4' : 'h-0 opacity-0 mb-0'
                 }`}>
                   <div className="h-full bg-slate-900/50 rounded-lg p-4 overflow-y-auto border border-slate-700/50">
-                    <div className="flex items-start space-x-3 mb-4">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-slate-500 rounded-full flex items-center justify-center">
-                        <Zap size={16} className="text-white" />
-                      </div>
-                      <div className="bg-slate-700/50 rounded-lg px-4 py-2 max-w-xs">
-                        <p className="text-gray-200 text-sm">
-                          Hello! I'm here to help you understand how our AI solutions can benefit your business. What would you like to know?
-                        </p>
-                      </div>
+                    <div className="space-y-4">
+                      {messages.map((message) => (
+                        <div key={message.id} className={`flex items-start space-x-3 ${
+                          message.isBot ? '' : 'flex-row-reverse space-x-reverse'
+                        }`}>
+                          {message.isBot && (
+                            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-slate-500 rounded-full flex items-center justify-center flex-shrink-0">
+                              <Zap size={16} className="text-white" />
+                            </div>
+                          )}
+                          <div className={`rounded-lg px-4 py-2 max-w-xs ${
+                            message.isBot 
+                              ? 'bg-slate-700/50 text-gray-200' 
+                              : 'bg-blue-600/80 text-white ml-auto'
+                          }`}>
+                            <p className="text-sm">{message.text}</p>
+                          </div>
+                          {!message.isBot && (
+                            <div className="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full flex items-center justify-center flex-shrink-0">
+                              <span className="text-white text-xs font-medium">U</span>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                      {isLoading && (
+                        <div className="flex items-start space-x-3">
+                          <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-slate-500 rounded-full flex items-center justify-center">
+                            <Zap size={16} className="text-white" />
+                          </div>
+                          <div className="bg-slate-700/50 rounded-lg px-4 py-2">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse delay-100"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse delay-200"></div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -173,10 +287,16 @@ const Services = () => {
                     onChange={handleInputChange}
                     onFocus={handleInputFocus}
                     onBlur={handleInputBlur}
+                    onKeyPress={handleKeyPress}
+                    disabled={isLoading}
                   />
-                  <Button className={`bg-gradient-to-r from-blue-600 to-slate-500 hover:from-blue-500 hover:to-slate-400 text-white transition-all duration-300 ${
-                    isExpanded ? 'px-6' : 'px-3'
-                  }`}>
+                  <Button 
+                    className={`bg-gradient-to-r from-blue-600 to-slate-500 hover:from-blue-500 hover:to-slate-400 text-white transition-all duration-300 ${
+                      isExpanded ? 'px-6' : 'px-3'
+                    }`}
+                    onClick={sendMessage}
+                    disabled={isLoading || !inputValue.trim()}
+                  >
                     <Send size={18} />
                   </Button>
                 </div>
