@@ -18,9 +18,11 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <div className="h-16 w-32 bg-slate-700/50 rounded flex items-center justify-center border border-blue-600/30">
-              <span className="text-blue-400 text-sm font-medium">LOGO</span>
-            </div>
+            <img 
+              src="/lovable-uploads/5473a23d-5f2b-4427-aad0-101aa58ae6eb.png" 
+              alt="Evilo Business Solutions" 
+              className="h-16 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
