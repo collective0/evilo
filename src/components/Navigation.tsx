@@ -21,7 +21,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/57427081-c9e9-4056-be06-69b42902bc71.png" 
               alt="Evilo Business Solutions" 
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
