@@ -119,8 +119,8 @@ const Services = () => {
 
     try {
       const requestPayload = {
-        text: userMessage.text,
-        timestamp: userMessage.timestamp.toISOString(),
+        chatInput: userMessage.text,
+        sessionId: "user-session-" + Date.now(),
       };
       
       console.log("🚀 Sending to n8n webhook:", requestPayload);
