@@ -137,7 +137,7 @@ const Services = () => {
       
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
-        text: data.response || data.message || "Thank you for your message. Our team will get back to you soon!",
+        text: data.reply || data.response || data.message || "Thank you for your message. Our team will get back to you soon!",
         isBot: true,
         timestamp: new Date(),
       };
