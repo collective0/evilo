@@ -124,7 +124,7 @@ const Services = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          message: userMessage.text,
+          text: userMessage.text,
           timestamp: userMessage.timestamp.toISOString(),
         }),
       });
