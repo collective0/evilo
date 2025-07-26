@@ -118,22 +118,32 @@ const Services = () => {
     setIsLoading(true);
 
     try {
+      const requestPayload = {
+        text: userMessage.text,
+        timestamp: userMessage.timestamp.toISOString(),
+      };
+      
+      console.log("🚀 Sending to n8n webhook:", requestPayload);
+      
       const response = await fetch("https://collectiveworld.app.n8n.cloud/webhook/support-message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          text: userMessage.text,
-          timestamp: userMessage.timestamp.toISOString(),
-        }),
+        body: JSON.stringify(requestPayload),
       });
 
+      console.log("📡 Response status:", response.status);
+      console.log("📡 Response headers:", Object.fromEntries(response.headers.entries()));
+
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorText = await response.text();
+        console.error("❌ HTTP error response:", errorText);
+        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
       }
 
       const data = await response.json();
+      console.log("✅ Raw response from n8n:", data);
       
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -144,7 +154,7 @@ const Services = () => {
 
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("❌ Error sending message:", error);
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
         text: "Sorry, I'm having trouble connecting right now. Please try again later or contact us directly.",
