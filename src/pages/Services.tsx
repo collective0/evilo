@@ -1,21 +1,15 @@
-
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Benefits from "@/components/Benefits";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
-import FloatingStars from "@/components/FloatingStars";
 
-
-
-const Index = () => {
+const ServicesPage = () => {
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      <FloatingStars />
+    <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <Hero />
-      
       <Services />
       <Benefits />
       <About />
@@ -24,4 +18,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default ServicesPage;
