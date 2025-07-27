@@ -4,11 +4,13 @@ import Benefits from "@/components/Benefits";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
+import DentalShowcase from "@/components/DentalShowcase";
 
-const ServicesPage = () => {
+const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
+      <DentalShowcase />
       <Hero />
       <Services />
       <Benefits />
@@ -18,4 +20,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage;
+export default Index;

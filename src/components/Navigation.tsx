@@ -27,16 +27,16 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-foreground hover:text-primary transition-colors duration-200">
-              Dental Software
+            <a href="#home" className="text-foreground hover:text-primary transition-colors duration-200">
+              Home
             </a>
-            <a href="/services" className="text-foreground hover:text-primary transition-colors duration-200">
+            <a href="#services" className="text-foreground hover:text-primary transition-colors duration-200">
               Services
             </a>
-            <a href="/services#about" className="text-foreground hover:text-primary transition-colors duration-200">
+            <a href="#about" className="text-foreground hover:text-primary transition-colors duration-200">
               About
             </a>
-            <a href="/services#contact" className="text-foreground hover:text-primary transition-colors duration-200">
+            <a href="#contact" className="text-foreground hover:text-primary transition-colors duration-200">
               Contact
             </a>
             <Button 
@@ -65,28 +65,28 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur-sm rounded-lg mb-4 border border-border">
               <a
-                href="/"
+                href="#home"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
-                Dental Software
+                Home
               </a>
               <a
-                href="/services"
+                href="#services"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Services
               </a>
               <a
-                href="/services#about"
+                href="#about"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 About
               </a>
               <a
-                href="/services#contact"
+                href="#contact"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
