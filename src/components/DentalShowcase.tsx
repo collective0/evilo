@@ -57,7 +57,7 @@ const DentalShowcase = () => {
             <h2 className="text-3xl font-bold mb-6">Complete Practice Management</h2>
             <div className="space-y-4 mb-8">
               {benefits.map((benefit, index) => <div key={index} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-white flex-shrink-0" />
                   <span className="text-muted-foreground">{benefit}</span>
                 </div>)}
             </div>
@@ -108,15 +108,15 @@ const DentalShowcase = () => {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">24/7 patient support</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Automated appointment booking</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Lead capture & conversion</span>
                 </li>
               </ul>
@@ -139,15 +139,15 @@ const DentalShowcase = () => {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Complete patient profiles</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Treatment history tracking</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Advanced search & filtering</span>
                 </li>
               </ul>
@@ -168,15 +168,15 @@ const DentalShowcase = () => {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Real-time analytics</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Revenue tracking</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-white" />
                   <span className="text-sm">Performance optimization</span>
                 </li>
               </ul>
