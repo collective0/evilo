@@ -74,7 +74,7 @@ const DentalShowcase = () => {
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
             🦷 Automated Booking Software
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-slate-400 to-blue-600 bg-clip-text text-transparent">
             Revolutionize Your Dental Clinic
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -127,7 +127,7 @@ const DentalShowcase = () => {
                         alt={screenshot.alt} 
                         className="w-full h-48 object-cover object-top" 
                       />
-                      <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                      <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                         {screenshot.title}
                       </div>
                     </Card>
