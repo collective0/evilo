@@ -181,40 +181,31 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-24 relative z-10 overflow-hidden">
-      {/* Subtle Professional Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background"></div>
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/1 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/2 rounded-full blur-3xl"></div>
-      
+    <section id="services" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20 animate-slide-up">
-          <div className="card-elegant rounded-2xl p-8 max-w-5xl mx-auto mb-8">
-            <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6 font-inter">
-              Create Your Custom <span className="animate-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:300%_300%]">AI Employee</span>
-            </h2>
-            <p className="text-2xl text-muted-foreground font-light leading-relaxed">
-              Tell us what you need, and we'll create a <span className="text-primary font-medium">custom AI solution</span> to make your work faster and easier.
-            </p>
-          </div>
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Create Your Custom <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent">AI Employee</span>
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Tell us what you need, and we'll create a custom AI to make your work faster and easier.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
-            <Card key={index} className="card-elegant group relative overflow-hidden">
-              <CardHeader className="relative z-10">
-                <div className="flex items-center justify-center w-16 h-16 bg-primary/5 rounded-xl mb-6 group-hover:bg-primary/10 transition-all duration-300">
-                  <service.icon className="text-primary/70 group-hover:text-primary transition-colors duration-300" size={32} />
+            <Card key={index} className="bg-slate-800/40 backdrop-blur-sm border border-blue-800/20 hover:border-blue-600/40 transition-all duration-300 hover:scale-105 group">
+              <CardHeader>
+                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-xl mb-4 group-hover:from-blue-500/30 group-hover:to-slate-400/30 transition-all duration-300">
+                  <service.icon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={32} />
                 </div>
-                <CardTitle className="text-foreground text-xl mb-4 group-hover:text-primary/90 transition-colors duration-300 font-semibold font-inter">{service.title}</CardTitle>
-                <CardDescription className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                <CardTitle className="text-white text-xl mb-2">{service.title}</CardTitle>
+                <CardDescription className="text-gray-300 text-base">
                   {service.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="relative z-10">
-                <div className="relative group-hover:scale-[1.02] transition-transform duration-300">
-                  {service.visual}
-                </div>
+              <CardContent>
+                {service.visual}
               </CardContent>
             </Card>
           ))}
@@ -222,16 +213,14 @@ const Services = () => {
 
         {/* AI Chat Section */}
         <div className="max-w-4xl mx-auto">
-          <div className="card-elegant rounded-2xl p-8 mb-8">
-            <div className="text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 font-inter">
-                Not sure if we have a solution for you? 
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"> Ask our system</span>
-              </h3>
-              <p className="text-muted-foreground">
-                Get instant answers about our AI automation capabilities
-              </p>
-            </div>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Not sure if we have a solution for you? 
+              <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent"> Ask our system</span>
+            </h3>
+            <p className="text-gray-300">
+              Get instant answers about our AI automation capabilities
+            </p>
           </div>
 
           {/* Expandable Chat Box */}
@@ -246,7 +235,7 @@ const Services = () => {
               }
             }}
           >
-            <Card className={`card-elegant backdrop-blur-sm overflow-hidden transition-all duration-500 ease-in-out ${
+            <Card className={`bg-slate-800/40 backdrop-blur-sm border border-blue-800/20 overflow-hidden transition-all duration-500 ease-in-out ${
               isExpanded ? 'rounded-lg' : 'rounded-full'
             }`}>
               <CardContent className={`transition-all duration-500 ease-in-out ${
