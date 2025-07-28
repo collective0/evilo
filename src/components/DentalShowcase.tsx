@@ -71,8 +71,8 @@ const DentalShowcase = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section with rounded background */}
         <div className="text-center mb-16 bg-card/60 backdrop-blur-sm rounded-3xl p-8 border border-border/50">
-          <div className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-3">
-            ⚡ Next-Generation Technology
+          <div className="inline-flex items-center gap-2 bg-orange-500/10 text-orange-500 px-4 py-2 rounded-full text-sm font-medium mb-3">
+            NEW
           </div>
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
             🦷 Automated Booking Software
