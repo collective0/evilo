@@ -69,74 +69,59 @@ const DentalShowcase = () => {
   return (
     <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Hero Section with rounded background */}
-        <div className="text-center mb-16 bg-card/60 backdrop-blur-sm rounded-3xl p-8 border border-border/50">
-          <div className="inline-flex items-center gap-2 bg-orange-500/10 text-orange-500 px-4 py-2 rounded-full text-sm font-medium mb-3">
-            NEW
-          </div>
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            🦷 Automated Booking Software
-          </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-slate-400 to-blue-600 bg-clip-text text-transparent">
-            Revolutionize Your Dental Clinic
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Complete Clinic management solution with automated booking, patient management, and AI-powered chat integration to streamline your operations and grow your practice.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8" onClick={handleGetStarted}>
-              Schedule Demo
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8" onClick={() => {
-              const servicesElement = document.getElementById('services');
-              servicesElement?.scrollIntoView({ behavior: 'smooth' });
-            }}>
-              View Services
-            </Button>
-          </div>
-        </div>
-
-        {/* Horizontal Overlapping Cards Section */}
-        <div className="relative mb-20 py-12">
-          <div className="flex justify-center items-center overflow-hidden">
-            <div className="flex items-center space-x-[-100px]">
-              {screenshots.map((screenshot, index) => {
-                const isHovered = hoveredCard === screenshot.id;
-                const zIndex = screenshot.priority === 1 ? 40 : 30 - screenshot.priority;
-                
-                return (
-                  <div
-                    key={screenshot.id}
-                    className={`relative transition-all duration-500 ease-out cursor-pointer ${
-                      isHovered ? 'scale-110 z-50' : ''
-                    }`}
-                    style={{
-                      zIndex: isHovered ? 50 : zIndex,
-                      marginLeft: index === 0 ? '0' : '-100px'
-                    }}
-                    onMouseEnter={() => setHoveredCard(screenshot.id)}
-                    onMouseLeave={() => setHoveredCard(null)}
-                  >
-                    <Card className={`w-80 overflow-hidden transition-all duration-500 ${
-                      isHovered 
-                        ? 'shadow-3xl shadow-primary/20 ring-2 ring-primary/50' 
-                        : index === 0 
-                          ? 'shadow-2xl' 
-                          : 'shadow-xl'
-                    }`}>
-                      <img 
-                        src={screenshot.src} 
-                        alt={screenshot.alt} 
-                        className="w-full h-48 object-cover object-top" 
-                      />
-                      <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                        {screenshot.title}
-                      </div>
-                    </Card>
-                  </div>
-                );
-              })}
+        {/* Hero Section */}
+        <div className="relative min-h-[600px] bg-gradient-to-br from-blue-600 via-blue-700 to-slate-800 rounded-3xl overflow-hidden mb-20">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-transparent"></div>
+          <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full px-8 py-16">
+            {/* Left Content */}
+            <div className="text-white space-y-6">
+              <div className="inline-flex items-center gap-2 bg-orange-500/20 text-orange-300 px-4 py-2 rounded-full text-sm font-medium">
+                NEW
+              </div>
+              
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                Full Stack AI Automated Patient Booking Software
+              </h1>
+              
+              <p className="text-lg text-blue-100 leading-relaxed max-w-lg">
+                Cut Costs, Save Time And Improve Patient Onboarding Experience With Our Integrated Chatbot Widget To Streamline And Completely Automate Booking.
+              </p>
+              
+              <p className="text-sm text-blue-200">
+                30-day risk-free guarantee
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button 
+                  size="lg" 
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-full"
+                  onClick={handleGetStarted}
+                >
+                  Book Demo Meeting →
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg rounded-full"
+                  onClick={() => {
+                    const servicesElement = document.getElementById('services');
+                    servicesElement?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  View Pricing →
+                </Button>
+              </div>
+            </div>
+            
+            {/* Right Image */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/87e209c7-bcc4-4ba0-8cd0-2138900a61ad.png"
+                  alt="AI Automated Patient Booking Software Interface"
+                  className="max-w-full h-auto rounded-lg shadow-2xl"
+                />
+              </div>
             </div>
           </div>
         </div>
