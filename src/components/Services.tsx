@@ -189,7 +189,7 @@ const Services = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20 animate-slide-up">
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8 font-playfair">
             Create Your Custom <span className="animate-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:300%_300%]">AI Employee</span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
@@ -204,7 +204,7 @@ const Services = () => {
                 <div className="flex items-center justify-center w-16 h-16 bg-primary/5 rounded-xl mb-6 group-hover:bg-primary/10 transition-all duration-300">
                   <service.icon className="text-primary/70 group-hover:text-primary transition-colors duration-300" size={32} />
                 </div>
-                <CardTitle className="text-foreground text-xl mb-4 group-hover:text-primary/90 transition-colors duration-300 font-semibold">{service.title}</CardTitle>
+                <CardTitle className="text-foreground text-xl mb-4 group-hover:text-primary/90 transition-colors duration-300 font-semibold font-playfair">{service.title}</CardTitle>
                 <CardDescription className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
                   {service.description}
                 </CardDescription>
