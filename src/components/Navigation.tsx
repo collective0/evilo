@@ -14,36 +14,41 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-primary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center">
+          <div className="flex items-center group">
             <img 
               src="/lovable-uploads/5473a23d-5f2b-4427-aad0-101aa58ae6eb.png" 
               alt="Evilo Business Solutions" 
-              className="h-12 w-auto"
+              className="h-12 w-auto group-hover:scale-105 transition-transform duration-300"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors duration-200">
+          <div className="hidden md:flex items-center space-x-10">
+            <a href="#home" className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group">
               Home
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#services" className="text-foreground hover:text-primary transition-colors duration-200">
+            <a href="#services" className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group">
               Services
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors duration-200">
+            <a href="#about" className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group">
               About
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors duration-200">
+            <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium relative group">
               Contact
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
             <Button 
               onClick={handleGetStarted}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover-lift border border-primary/50 font-semibold px-6 relative overflow-hidden group"
             >
-              Get Started
+              <span className="relative z-10">Get Started</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </Button>
           </div>
 

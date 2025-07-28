@@ -181,31 +181,39 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 relative z-10">
+    <section id="services" className="py-24 relative z-10 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 tech-grid opacity-30"></div>
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Create Your Custom <span className="bg-gradient-to-r from-blue-600 to-slate-500 bg-clip-text text-transparent">AI Employee</span>
+        <div className="text-center mb-20 animate-slide-up">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-8">
+            Create Your Custom <span className="animate-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:300%_300%]">AI Employee</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Tell us what you need, and we'll create a custom AI to make your work faster and easier.
+          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
+            Tell us what you need, and we'll create a <span className="text-primary font-medium">custom AI solution</span> to make your work faster and easier.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24">
           {services.map((service, index) => (
-            <Card key={index} className="bg-slate-800/40 backdrop-blur-sm border border-blue-800/20 hover:border-blue-600/40 transition-all duration-300 hover:scale-105 group">
-              <CardHeader>
-                <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-xl mb-4 group-hover:from-blue-500/30 group-hover:to-slate-400/30 transition-all duration-300">
-                  <service.icon className="text-blue-400 group-hover:text-blue-300 transition-colors" size={32} />
+            <Card key={index} className="glass-strong border border-primary/20 hover-lift hover-glow group relative overflow-hidden">
+              <div className="scan-line"></div>
+              <CardHeader className="relative z-10">
+                <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-6 group-hover:from-primary/30 group-hover:to-accent/30 group-hover:scale-110 transition-all duration-500 animate-pulse-glow">
+                  <service.icon className="text-primary group-hover:text-accent transition-colors duration-500" size={36} />
                 </div>
-                <CardTitle className="text-white text-xl mb-2">{service.title}</CardTitle>
-                <CardDescription className="text-gray-300 text-base">
+                <CardTitle className="text-foreground text-2xl mb-4 group-hover:text-primary transition-colors duration-300 font-bold">{service.title}</CardTitle>
+                <CardDescription className="text-muted-foreground text-lg leading-relaxed group-hover:text-foreground transition-colors duration-300">
                   {service.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                {service.visual}
+              <CardContent className="relative z-10">
+                <div className="relative group-hover:scale-105 transition-transform duration-500">
+                  {service.visual}
+                </div>
               </CardContent>
             </Card>
           ))}
