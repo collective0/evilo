@@ -61,7 +61,7 @@ const DentalShowcase = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="relative min-h-[600px] bg-gradient-to-br from-blue-600 via-blue-700 to-slate-800 rounded-3xl overflow-hidden mb-20">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-800/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 to-transparent"></div>
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full px-8 py-16">
             {/* Left Content */}
             <div className="text-white space-y-6">
