@@ -94,53 +94,47 @@ const DentalShowcase = () => {
           </div>
         </div>
 
-        {/* Shuffled Cards Section */}
-        <div className="relative h-[600px] mb-20 overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            {screenshots.map((screenshot, index) => {
-              const isHovered = hoveredCard === screenshot.id;
-              const zIndex = screenshot.priority === 1 ? 40 : 30 - screenshot.priority;
-              
-              // Position calculations for shuffled effect
-              const positions = [
-                { x: '20%', y: '10%', rotation: '-8deg' },
-                { x: '55%', y: '15%', rotation: '12deg' },
-                { x: '10%', y: '45%', rotation: '15deg' },
-                { x: '60%', y: '50%', rotation: '-12deg' }
-              ];
-              
-              const position = positions[index];
-              
-              return (
-                <div
-                  key={screenshot.id}
-                  className={`absolute w-80 transition-all duration-500 ease-out cursor-pointer ${
-                    isHovered ? 'scale-110 z-50' : ''
-                  }`}
-                  style={{
-                    left: position.x,
-                    top: position.y,
-                    transform: `rotate(${position.rotation}) ${isHovered ? 'scale(1.1)' : 'scale(1)'}`,
-                    zIndex: isHovered ? 50 : zIndex
-                  }}
-                  onMouseEnter={() => setHoveredCard(screenshot.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  <Card className={`overflow-hidden shadow-2xl transition-all duration-500 ${
-                    isHovered ? 'shadow-3xl ring-2 ring-primary/50' : ''
-                  }`}>
-                    <img 
-                      src={screenshot.src} 
-                      alt={screenshot.alt} 
-                      className="w-full h-auto" 
-                    />
-                    <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                      {screenshot.title}
-                    </div>
-                  </Card>
-                </div>
-              );
-            })}
+        {/* Horizontal Overlapping Cards Section */}
+        <div className="relative mb-20 py-12">
+          <div className="flex justify-center items-center overflow-hidden">
+            <div className="flex items-center space-x-[-100px]">
+              {screenshots.map((screenshot, index) => {
+                const isHovered = hoveredCard === screenshot.id;
+                const zIndex = screenshot.priority === 1 ? 40 : 30 - screenshot.priority;
+                
+                return (
+                  <div
+                    key={screenshot.id}
+                    className={`relative transition-all duration-500 ease-out cursor-pointer ${
+                      isHovered ? 'scale-110 z-50' : ''
+                    }`}
+                    style={{
+                      zIndex: isHovered ? 50 : zIndex,
+                      marginLeft: index === 0 ? '0' : '-100px'
+                    }}
+                    onMouseEnter={() => setHoveredCard(screenshot.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    <Card className={`w-80 overflow-hidden transition-all duration-500 ${
+                      isHovered 
+                        ? 'shadow-3xl shadow-primary/20 ring-2 ring-primary/50' 
+                        : index === 0 
+                          ? 'shadow-2xl' 
+                          : 'shadow-xl'
+                    }`}>
+                      <img 
+                        src={screenshot.src} 
+                        alt={screenshot.alt} 
+                        className="w-full h-auto" 
+                      />
+                      <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                        {screenshot.title}
+                      </div>
+                    </Card>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
