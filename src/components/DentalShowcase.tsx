@@ -31,8 +31,10 @@ const DentalShowcase = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">🦷 Automated Booking Software
         </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent font-playfair">Revolutionize Your Dental Clinic</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">Complete Clinic management solution with automated booking, patient management, and AI-powered chat integration to streamline your operations and grow your practice.</p>
+          <div className="card-elegant rounded-2xl p-8 max-w-5xl mx-auto mb-8">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent font-inter">Revolutionize Your Dental Clinic</h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">Complete Clinic management solution with automated booking, patient management, and AI-powered chat integration to streamline your operations and grow your practice.</p>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8" onClick={handleGetStarted}>
               Schedule Demo
@@ -51,11 +53,11 @@ const DentalShowcase = () => {
 
         {/* Main Software Showcase */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Complete Practice Management</h2>
-            <div className="space-y-4 mb-8">
+          <div className="card-elegant rounded-2xl p-8">
+            <h2 className="text-3xl font-bold mb-6 font-inter">Complete Practice Management</h2>
+            <div className="space-y-4">
               {benefits.map((benefit, index) => <div key={index} className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-white flex-shrink-0" />
+                  <Check className="w-5 h-5 text-primary flex-shrink-0" />
                   <span className="text-muted-foreground">{benefit}</span>
                 </div>)}
             </div>
@@ -85,9 +87,9 @@ const DentalShowcase = () => {
 
         {/* Software Screenshots Grid */}
         <div className="space-y-12">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">See It In Action</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="card-elegant rounded-2xl p-8 text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 font-inter">See It In Action</h2>
+            <p className="text-muted-foreground">
               Experience the power of our integrated dental practice management system
             </p>
           </div>
@@ -97,8 +99,8 @@ const DentalShowcase = () => {
             <Card className="card-elegant overflow-hidden">
               <img src="/lovable-uploads/1a2832b2-211d-4b83-ac13-a21857d02681.png" alt="AI-Powered Chat Integration for Dental Practices" className="w-full h-auto" />
             </Card>
-            <div>
-              <h3 className="text-2xl font-bold mb-4">AI-Powered Chat Integration</h3>
+            <div className="card-elegant rounded-2xl p-6">
+              <h3 className="text-2xl font-bold mb-4 font-inter">AI-Powered Chat Integration</h3>
               <p className="text-muted-foreground mb-6">
                 Our intelligent chatbot handles patient inquiries, appointment requests, and provides 
                 instant responses 24/7. Seamlessly integrates with your website to capture leads 
@@ -106,15 +108,15 @@ const DentalShowcase = () => {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-primary" />
                   <span className="text-sm">24/7 patient support</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-primary" />
                   <span className="text-sm">Automated appointment booking</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-primary" />
                   <span className="text-sm">Lead capture & conversion</span>
                 </li>
               </ul>
@@ -124,41 +126,43 @@ const DentalShowcase = () => {
           {/* Patient Management */}
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div className="lg:order-2">
-              <Card className="overflow-hidden shadow-xl">
+              <Card className="card-elegant overflow-hidden">
                 <img src="/lovable-uploads/ebde0754-fca7-44fb-b523-ab4a354cf3b9.png" alt="Comprehensive Patient Management System" className="w-full h-auto" />
               </Card>
             </div>
             <div className="lg:order-1">
-              <h3 className="text-2xl font-bold mb-4">Patient Management Made Simple</h3>
-              <p className="text-muted-foreground mb-6">
-                Comprehensive patient database with treatment history, contact information, 
-                and appointment tracking. Easily search, filter, and manage all patient 
-                interactions from one central location.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
-                  <span className="text-sm">Complete patient profiles</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
-                  <span className="text-sm">Treatment history tracking</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
-                  <span className="text-sm">Advanced search & filtering</span>
-                </li>
-              </ul>
+              <div className="card-elegant rounded-2xl p-6">
+                <h3 className="text-2xl font-bold mb-4 font-inter">Patient Management Made Simple</h3>
+                <p className="text-muted-foreground mb-6">
+                  Comprehensive patient database with treatment history, contact information, 
+                  and appointment tracking. Easily search, filter, and manage all patient 
+                  interactions from one central location.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary" />
+                    <span className="text-sm">Complete patient profiles</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary" />
+                    <span className="text-sm">Treatment history tracking</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-primary" />
+                    <span className="text-sm">Advanced search & filtering</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 
           {/* Analytics Dashboard */}
           <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <Card className="overflow-hidden shadow-xl">
+            <Card className="card-elegant overflow-hidden">
               <img src="/lovable-uploads/7b52cc4f-885e-4227-9b0e-97c032577d57.png" alt="Practice Analytics and Performance Dashboard" className="w-full h-auto" />
             </Card>
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Data-Driven Insights</h3>
+            <div className="card-elegant rounded-2xl p-6">
+              <h3 className="text-2xl font-bold mb-4 font-inter">Data-Driven Insights</h3>
               <p className="text-muted-foreground mb-6">
                 Get real-time insights into your practice performance with comprehensive 
                 analytics. Track appointments, patient flow, revenue trends, and identify 
@@ -166,15 +170,15 @@ const DentalShowcase = () => {
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-primary" />
                   <span className="text-sm">Real-time analytics</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-primary" />
                   <span className="text-sm">Revenue tracking</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-primary" />
                   <span className="text-sm">Performance optimization</span>
                 </li>
               </ul>

@@ -56,27 +56,29 @@ const Hero = () => {
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight font-playfair">
-            Transform Your Business with
-            <br />
-            <span className="animate-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:300%_300%]">
-              AI Automation
-            </span>
-            <span className="text-foreground"> to </span>
-            <span 
-              className={`animate-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:300%_300%] inline-block ${
-                isMobile ? 'w-auto text-center' : 'w-[400px] text-left whitespace-nowrap'
-              } ${isAnimating ? 'animate-fade-out' : showFadeIn ? 'animate-fade-in' : ''}`}
-              style={{ animationDelay: '1s' }}
-            >
-              {rotatingTexts[currentTextIndex]}
-            </span>
-          </h1>
+          <div className="card-elegant rounded-2xl p-8 mb-8 max-w-5xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight font-inter">
+              Transform Your Business with
+              <br />
+              <span className="animate-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:300%_300%]">
+                AI Automation
+              </span>
+              <span className="text-foreground"> to </span>
+              <span 
+                className={`animate-gradient bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary bg-[length:300%_300%] inline-block ${
+                  isMobile ? 'w-auto text-center' : 'w-[400px] text-left whitespace-nowrap'
+                } ${isAnimating ? 'animate-fade-out' : showFadeIn ? 'animate-fade-in' : ''}`}
+                style={{ animationDelay: '1s' }}
+              >
+                {rotatingTexts[currentTextIndex]}
+              </span>
+            </h1>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed font-light">
-            Unlock unprecedented efficiency and growth with our cutting-edge AI automation solutions. 
-            We help businesses <span className="text-primary font-medium">streamline operations</span>, reduce costs, and scale effortlessly.
-          </p>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-light">
+              Unlock unprecedented efficiency and growth with our cutting-edge AI automation solutions. 
+              We help businesses <span className="text-primary font-medium">streamline operations</span>, reduce costs, and scale effortlessly.
+            </p>
+          </div>
 
           <div className="flex justify-center items-center mb-16">
             <Button 
@@ -102,7 +104,7 @@ const Hero = () => {
                       <item.icon className="text-primary/70 group-hover:text-primary transition-colors duration-300" size={28} />
                     </div>
                   </div>
-                  <h3 className="text-foreground font-semibold text-lg mb-2 group-hover:text-primary/90 transition-colors duration-300 font-playfair">{item.title}</h3>
+                  <h3 className="text-foreground font-semibold text-lg mb-2 group-hover:text-primary/90 transition-colors duration-300 font-inter">{item.title}</h3>
                   <p className="text-muted-foreground text-sm group-hover:text-foreground/80 transition-colors duration-300">{item.desc}</p>
                 </div>
               </div>
