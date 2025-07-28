@@ -75,9 +75,7 @@ const DentalShowcase = () => {
                 <span className="text-lg lg:text-xl xl:text-2xl">AI Powered Automated Booking Software</span>
               </h1>
               
-              <p className="text-lg text-blue-100 leading-relaxed max-w-lg">
-                Cut Costs, Save Time And Improve Patient Onboarding Experience With Our Integrated Chatbot Widget To Streamline And Completely Automate Booking.
-              </p>
+              <p className="text-lg text-blue-100 leading-relaxed max-w-lg">Evilo Software empowers dental and medical clinics to operate more efficiently. Our platform automates everything from patient intake to appointment reminders — so your team can focus on what matters most: delivering care.</p>
               
               
               
@@ -85,14 +83,7 @@ const DentalShowcase = () => {
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-full" onClick={handleGetStarted}>
                   Book Demo Meeting →
                 </Button>
-                <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg rounded-full" onClick={() => {
-                const servicesElement = document.getElementById('services');
-                servicesElement?.scrollIntoView({
-                  behavior: 'smooth'
-                });
-              }}>
-                  View Pricing →
-                </Button>
+                
               </div>
             </div>
             
