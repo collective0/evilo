@@ -71,6 +71,8 @@ const DentalShowcase = () => {
               
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Evilo Software™
+                <br />
+                <span className="text-2xl lg:text-3xl xl:text-4xl">AI Powered Automated Booking Software</span>
               </h1>
               
               <p className="text-lg text-blue-100 leading-relaxed max-w-lg">
