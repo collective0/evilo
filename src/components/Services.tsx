@@ -182,10 +182,10 @@ const Services = () => {
 
   return (
     <section id="services" className="py-24 relative z-10 overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 tech-grid opacity-30"></div>
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl"></div>
+      {/* Subtle Professional Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background"></div>
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/1 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/2 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20 animate-slide-up">
@@ -199,19 +199,18 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-24">
           {services.map((service, index) => (
-            <Card key={index} className="glass-strong border border-primary/20 hover-lift hover-glow group relative overflow-hidden">
-              <div className="scan-line"></div>
+            <Card key={index} className="card-elegant group relative overflow-hidden">
               <CardHeader className="relative z-10">
-                <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl mb-6 group-hover:from-primary/30 group-hover:to-accent/30 group-hover:scale-110 transition-all duration-500 animate-pulse-glow">
-                  <service.icon className="text-primary group-hover:text-accent transition-colors duration-500" size={36} />
+                <div className="flex items-center justify-center w-16 h-16 bg-primary/5 rounded-xl mb-6 group-hover:bg-primary/10 transition-all duration-300">
+                  <service.icon className="text-primary/70 group-hover:text-primary transition-colors duration-300" size={32} />
                 </div>
-                <CardTitle className="text-foreground text-2xl mb-4 group-hover:text-primary transition-colors duration-300 font-bold">{service.title}</CardTitle>
-                <CardDescription className="text-muted-foreground text-lg leading-relaxed group-hover:text-foreground transition-colors duration-300">
+                <CardTitle className="text-foreground text-xl mb-4 group-hover:text-primary/90 transition-colors duration-300 font-semibold">{service.title}</CardTitle>
+                <CardDescription className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="relative group-hover:scale-105 transition-transform duration-500">
+                <div className="relative group-hover:scale-[1.02] transition-transform duration-300">
                   {service.visual}
                 </div>
               </CardContent>
@@ -243,7 +242,7 @@ const Services = () => {
               }
             }}
           >
-            <Card className={`bg-slate-800/40 backdrop-blur-sm border border-blue-800/20 overflow-hidden transition-all duration-500 ease-in-out ${
+            <Card className={`card-elegant backdrop-blur-sm overflow-hidden transition-all duration-500 ease-in-out ${
               isExpanded ? 'rounded-lg' : 'rounded-full'
             }`}>
               <CardContent className={`transition-all duration-500 ease-in-out ${

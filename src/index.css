@@ -9,31 +9,31 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core Colors */
-    --background: 220 15% 5%;
-    --foreground: 210 40% 98%;
-    --card: 220 15% 7%;
-    --card-foreground: 210 40% 98%;
-    --popover: 220 15% 7%;
-    --popover-foreground: 210 40% 98%;
+    /* Core Colors - Ultra Dark Theme */
+    --background: 0 0% 2%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 95%;
     
-    /* Brand Colors */
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 15% 5%;
-    --primary-glow: 217 91% 70%;
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 210 40% 98%;
-    --accent: 240 100% 70%;
-    --accent-foreground: 220 15% 5%;
+    /* Brand Colors - Refined Palette */
+    --primary: 220 100% 85%;
+    --primary-foreground: 0 0% 8%;
+    --primary-glow: 220 100% 90%;
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 95%;
+    --accent: 240 60% 70%;
+    --accent-foreground: 0 0% 8%;
     
-    /* UI Colors */
-    --muted: 220 15% 12%;
-    --muted-foreground: 215 20% 65%;
-    --destructive: 0 62% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 220 15% 15%;
-    --input: 220 15% 12%;
-    --ring: 217 91% 60%;
+    /* UI Colors - Professional Grays */
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 60%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 12%;
+    --input: 0 0% 8%;
+    --ring: 220 100% 85%;
     
     /* Chart Colors */
     --chart-1: 217 91% 60%;
@@ -45,17 +45,19 @@ All colors MUST be HSL.
     /* Design System */
     --radius: 0.75rem;
     
-    /* Advanced Effects */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-tech: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary)) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
-    --shadow-tech: 0 10px 40px -10px hsl(var(--primary) / 0.4);
-    --backdrop-blur: blur(16px);
+    /* Advanced Effects - Sophisticated Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--primary) / 0.3));
+    --gradient-tech: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--accent) / 0.05) 50%, hsl(var(--primary) / 0.1) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    --shadow-glow: 0 0 20px hsl(var(--primary) / 0.1);
+    --shadow-tech: 0 4px 24px -8px hsl(var(--primary) / 0.2);
+    --shadow-elegant: 0 8px 32px -12px rgba(0, 0, 0, 0.4);
+    --backdrop-blur: blur(24px);
     
-    /* Animation Variables */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Animation Variables - Refined Timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     /* Sidebar */
     --sidebar-background: 220 15% 6%;
@@ -168,17 +170,31 @@ All colors MUST be HSL.
 .animate-slide-up { animation: slideInUp 0.8s var(--transition-smooth); }
 .animate-morphing { animation: morphing-bg 8s ease-in-out infinite; }
 
-/* Glass Morphism Effects */
+/* Glass Morphism Effects - Sophisticated Cards */
 .glass {
   background: var(--gradient-glass);
   backdrop-filter: var(--backdrop-blur);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--gradient-card);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Professional Card Styles */
+.card-elegant {
+  background: var(--gradient-card);
+  border: 1px solid hsl(var(--border));
+  box-shadow: var(--shadow-elegant);
+  transition: var(--transition-smooth);
+}
+
+.card-elegant:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-tech), var(--shadow-elegant);
+  border-color: hsl(var(--primary) / 0.2);
 }
 
 /* Tech Grid Pattern */

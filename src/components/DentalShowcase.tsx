@@ -63,7 +63,7 @@ const DentalShowcase = () => {
           
           {/* Main Calendar Screenshot */}
           <div className="relative">
-            <Card className="overflow-hidden shadow-2xl">
+            <Card className="card-elegant overflow-hidden">
               <img src="/lovable-uploads/3b6e4510-edc2-4313-866e-989f60a10c1f.png" alt="Dental Practice Management Dashboard - Appointment Calendar" className="w-full h-auto" />
             </Card>
             <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
@@ -74,12 +74,12 @@ const DentalShowcase = () => {
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          {features.map((feature, index) => <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <feature.icon className="w-6 h-6 text-primary" />
+          {features.map((feature, index) => <Card key={index} className="card-elegant p-6 text-center group">
+              <div className="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/10 transition-all duration-300">
+                <feature.icon className="w-6 h-6 text-primary/70 group-hover:text-primary transition-colors duration-300" />
               </div>
-              <h3 className="font-semibold mb-2">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground">{feature.description}</p>
+              <h3 className="font-semibold mb-2 group-hover:text-primary/90 transition-colors duration-300">{feature.title}</h3>
+              <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">{feature.description}</p>
             </Card>)}
         </div>
 
@@ -94,7 +94,7 @@ const DentalShowcase = () => {
 
           {/* Chat Integration */}
           <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <Card className="overflow-hidden shadow-xl">
+            <Card className="card-elegant overflow-hidden">
               <img src="/lovable-uploads/1a2832b2-211d-4b83-ac13-a21857d02681.png" alt="AI-Powered Chat Integration for Dental Practices" className="w-full h-auto" />
             </Card>
             <div>
