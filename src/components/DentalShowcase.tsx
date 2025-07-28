@@ -125,7 +125,7 @@ const DentalShowcase = () => {
                       <img 
                         src={screenshot.src} 
                         alt={screenshot.alt} 
-                        className="w-full h-auto" 
+                        className="w-full h-48 object-cover object-top" 
                       />
                       <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                         {screenshot.title}
