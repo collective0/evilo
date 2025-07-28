@@ -31,9 +31,7 @@ const DentalShowcase = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">🦷 Automated Booking Software
         </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-            Revolutionize Your Dental Practice
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">Revolutionize Your Dental Clinic</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">Complete Clinic management solution with automated booking, patient management, and AI-powered chat integration to streamline your operations and grow your practice.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8" onClick={handleGetStarted}>
