@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Navigation from "@/components/Navigation";
 import DentalShowcase from "@/components/DentalShowcase";
+import FloatingChatbot from "@/components/FloatingChatbot";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
       <Benefits />
       <About />
       <Contact />
+      <FloatingChatbot />
     </div>
   );
 };
