@@ -140,15 +140,7 @@ const Contact = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-lg flex items-center justify-center border border-blue-600/20">
-                    <Phone className="text-blue-400" size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-1">Phone</h4>
-                    <p className="text-gray-300">+1 (437) 324-0800</p>
-                  </div>
-                </div>
+                
                 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-lg flex items-center justify-center border border-blue-600/20">
@@ -166,11 +158,7 @@ const Contact = () => {
               <CardContent className="p-6 text-center">
                 <div className="flex items-center justify-center mb-4">
                   <div className="relative">
-                    <img 
-                      src="/lovable-uploads/5473a23d-5f2b-4427-aad0-101aa58ae6eb.png" 
-                      alt="Evilo Business Solutions" 
-                      className="h-16 w-auto"
-                    />
+                    <img src="/lovable-uploads/5473a23d-5f2b-4427-aad0-101aa58ae6eb.png" alt="Evilo Business Solutions" className="h-16 w-auto" />
                     <div className="absolute -inset-2 flex items-center justify-center">
                       <Sparkles className="text-blue-400/30 animate-pulse" size={16} />
                     </div>
