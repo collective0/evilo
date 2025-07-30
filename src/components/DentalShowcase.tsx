@@ -54,7 +54,7 @@ const DentalShowcase = () => {
     icon: BarChart3,
     title: "Analytics Dashboard",
     description: "Real-time insights into your practice performance and appointment trends",
-    benefits: ["Real-time analytics", "Revenue tracking", "Performance optimization", "Growth insights"]
+    benefits: ["Real-time analytics", "Patient population tracking", "Performance optimization", "Growth insights"]
   }];
   const benefits = ["Reduce no-shows by 40% with automated reminders", "Save 10+ hours per week on administrative tasks", "Increase patient satisfaction with instant responses", "Streamline operations with integrated workflows", "Boost revenue with optimized scheduling"];
   return <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
