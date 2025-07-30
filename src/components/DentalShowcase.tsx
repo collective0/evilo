@@ -83,7 +83,14 @@ const DentalShowcase = () => {
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-full" onClick={handleGetStarted}>
                   Book Demo Meeting →
                 </Button>
-                
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="px-8 py-3 text-lg rounded-full border-white/30 text-white hover:bg-white/10"
+                  onClick={() => window.open('https://eviloportal.com/', '_blank')}
+                >
+                  Login Portal
+                </Button>
               </div>
             </div>
             
