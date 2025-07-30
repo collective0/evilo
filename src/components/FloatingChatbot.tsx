@@ -94,7 +94,7 @@ const FloatingChatbot = () => {
   };
   return <div className="fixed bottom-6 right-6 z-50">
       {/* Chat Window */}
-      {isOpen && <div className={`mb-4 transition-all duration-300 ease-out ${isMinimized ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100 animate-scale-in'}`}>
+      {isOpen && <div className={`mb-4 animate-fade-in ${isMinimized ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
           <Card className="w-80 h-96 bg-slate-800/95 backdrop-blur-lg border border-blue-800/30 shadow-2xl shadow-blue-900/20 overflow-hidden flex flex-col">
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600/20 to-slate-500/20 border-b border-blue-800/30 p-4 flex items-center justify-between">
