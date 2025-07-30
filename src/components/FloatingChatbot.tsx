@@ -118,7 +118,7 @@ const FloatingChatbot = () => {
             ? 'opacity-0 scale-95 pointer-events-none' 
             : 'opacity-100 scale-100 animate-scale-in'
         }`}>
-          <Card className="w-80 h-96 bg-slate-800/95 backdrop-blur-lg border border-blue-800/30 shadow-2xl shadow-blue-900/20 overflow-hidden">
+          <Card className="w-80 h-96 bg-slate-800/95 backdrop-blur-lg border border-blue-800/30 shadow-2xl shadow-blue-900/20 overflow-hidden flex flex-col">
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600/20 to-slate-500/20 border-b border-blue-800/30 p-4 flex items-center justify-between">
               <div className="flex items-center space-x-2">
@@ -150,7 +150,7 @@ const FloatingChatbot = () => {
               </div>
             </div>
 
-            <CardContent className="p-0 h-full flex flex-col">
+            <CardContent className="flex-1 p-0 flex flex-col min-h-0">
               {/* Messages Area */}
               <div className="flex-1 p-4 overflow-y-auto bg-slate-900/50">
                 <div className="space-y-3">
