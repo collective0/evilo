@@ -12,6 +12,7 @@ interface ChatMessage {
 }
 const FloatingChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([{
@@ -83,9 +84,26 @@ const FloatingChatbot = () => {
     }
   };
   const toggleChat = () => {
-    setIsOpen(!isOpen);
+    if (isOpen) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsClosing(false);
+      }, 300);
+    } else {
+      setIsOpen(true);
+    }
     setIsMinimized(false);
   };
+  
+  const closeChat = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+    }, 300);
+  };
+  
   const minimizeChat = () => {
     setIsMinimized(true);
   };
@@ -94,7 +112,7 @@ const FloatingChatbot = () => {
   };
   return <div className="fixed bottom-6 right-6 z-50">
       {/* Chat Window */}
-      {isOpen && <div className={`mb-4 animate-fade-in ${isMinimized ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
+      {(isOpen || isClosing) && <div className={`mb-4 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'} ${isMinimized ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}`}>
           <Card className="w-80 h-96 bg-slate-800/95 backdrop-blur-lg border border-blue-800/30 shadow-2xl shadow-blue-900/20 overflow-hidden flex flex-col">
             {/* Header */}
             <div className="bg-gradient-to-r from-blue-600/20 to-slate-500/20 border-b border-blue-800/30 p-4 flex items-center justify-between">
@@ -109,7 +127,7 @@ const FloatingChatbot = () => {
               </div>
               <div className="flex items-center space-x-1">
                 
-                <Button size="sm" variant="ghost" className="w-8 h-8 p-0 hover:bg-white/10" onClick={() => setIsOpen(false)}>
+                <Button size="sm" variant="ghost" className="w-8 h-8 p-0 hover:bg-white/10" onClick={closeChat}>
                   <X size={14} className="text-gray-400" />
                 </Button>
               </div>
