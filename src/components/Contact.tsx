@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Send, Sparkles } from "lucide-react";
+import officeBuildingLogo from "@/assets/office-building-logo.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -144,7 +145,7 @@ const Contact = () => {
                 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-slate-500/20 rounded-lg flex items-center justify-center border border-blue-600/20">
-                    <MapPin className="text-blue-400" size={20} />
+                    <img src={officeBuildingLogo} alt="Office Building" className="w-6 h-6" />
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Office</h4>
