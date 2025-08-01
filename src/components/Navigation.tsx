@@ -2,16 +2,26 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (section: string) => {
+    if (location.pathname !== '/') {
+      navigate(`/#${section}`);
+    } else {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   const handleGetStarted = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    handleNavigation('contact');
   };
 
   return (
@@ -28,21 +38,21 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors duration-200">
+            <button onClick={() => handleNavigation('home')} className="text-foreground hover:text-primary transition-colors duration-200">
               Home
-            </a>
-            <a href="#services" className="text-foreground hover:text-primary transition-colors duration-200">
+            </button>
+            <button onClick={() => handleNavigation('services')} className="text-foreground hover:text-primary transition-colors duration-200">
               Services
-            </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors duration-200">
+            </button>
+            <button onClick={() => handleNavigation('about')} className="text-foreground hover:text-primary transition-colors duration-200">
               About
-            </a>
+            </button>
             <Link to="/legal-compliance" className="text-foreground hover:text-primary transition-colors duration-200">
               Legal & Compliance
             </Link>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors duration-200">
+            <button onClick={() => handleNavigation('contact')} className="text-foreground hover:text-primary transition-colors duration-200">
               Contact
-            </a>
+            </button>
             <Button 
               onClick={handleGetStarted}
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -68,27 +78,33 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur-sm rounded-lg mb-4 border border-border">
-              <a
-                href="#home"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
+              <button
+                onClick={() => {
+                  handleNavigation('home');
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 w-full text-left"
               >
                 Home
-              </a>
-              <a
-                href="#services"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
+              </button>
+              <button
+                onClick={() => {
+                  handleNavigation('services');
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 w-full text-left"
               >
                 Services
-              </a>
-              <a
-                href="#about"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
+              </button>
+              <button
+                onClick={() => {
+                  handleNavigation('about');
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 w-full text-left"
               >
                 About
-              </a>
+              </button>
               <Link
                 to="/legal-compliance"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
@@ -96,13 +112,15 @@ const Navigation = () => {
               >
                 Legal & Compliance
               </Link>
-              <a
-                href="#contact"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
+              <button
+                onClick={() => {
+                  handleNavigation('contact');
+                  setIsOpen(false);
+                }}
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 w-full text-left"
               >
                 Contact
-              </a>
+              </button>
               <div className="px-3 py-2">
                 <Button 
                   onClick={() => {
