@@ -105,16 +105,31 @@ const LegalCompliancePage = () => {
                       Our comprehensive terms of service and privacy policy outline how we 
                       protect your data and define our service commitments.
                     </p>
-                    <div className="space-y-2">
-                      <a href="#" className="block text-primary hover:text-primary/80 transition-colors underline">
-                        View Terms of Service
-                      </a>
-                      <a href="#" className="block text-primary hover:text-primary/80 transition-colors underline">
-                        View Privacy Policy
-                      </a>
-                      <a href="#" className="block text-primary hover:text-primary/80 transition-colors underline">
-                        Business Associate Agreement
-                      </a>
+                    <div className="border-2 border-dashed border-primary/30 rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
+                      <input
+                        type="file"
+                        accept=".pdf"
+                        className="hidden"
+                        id="hipaa-pdf-upload"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          if (file) {
+                            console.log('HIPAA PDF uploaded:', file.name);
+                          }
+                        }}
+                      />
+                      <label
+                        htmlFor="hipaa-pdf-upload"
+                        className="cursor-pointer flex flex-col items-center space-y-2"
+                      >
+                        <FileCheck className="text-primary" size={24} />
+                        <span className="text-sm text-muted-foreground">
+                          Drop your HIPAA Compliance PDF here or click to browse
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          PDF files only
+                        </span>
+                      </label>
                     </div>
                   </CardContent>
                 </Card>
