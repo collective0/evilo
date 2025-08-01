@@ -36,6 +36,9 @@ const Navigation = () => {
             <a href="#about" className="text-foreground hover:text-primary transition-colors duration-200">
               About
             </a>
+            <a href="#legal" className="text-foreground hover:text-primary transition-colors duration-200">
+              Legal & Compliance
+            </a>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors duration-200">
               Contact
             </a>
@@ -84,6 +87,13 @@ const Navigation = () => {
                 onClick={() => setIsOpen(false)}
               >
                 About
+              </a>
+              <a
+                href="#legal"
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Legal & Compliance
               </a>
               <a
                 href="#contact"
