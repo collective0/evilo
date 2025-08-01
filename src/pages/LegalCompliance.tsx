@@ -1,7 +1,88 @@
-import { Shield, FileCheck, Lock, Users, CheckCircle } from "lucide-react";
+import { Shield, FileCheck, Lock, Users, CheckCircle, Upload } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { useState, useEffect } from "react";
+
 const LegalCompliancePage = () => {
+  const [uploadedFile, setUploadedFile] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const { toast } = useToast();
+
+  // Check if a file already exists
+  useEffect(() => {
+    const checkExistingFile = async () => {
+      const { data } = await supabase.storage
+        .from('compliance-docs')
+        .list('', { limit: 1 });
+      
+      if (data && data.length > 0) {
+        setUploadedFile(data[0].name);
+      }
+    };
+    checkExistingFile();
+  }, []);
+
+  const handleFileUpload = async (file: File) => {
+    setIsUploading(true);
+    
+    try {
+      // Remove existing file if any
+      if (uploadedFile) {
+        await supabase.storage.from('compliance-docs').remove([uploadedFile]);
+      }
+
+      const fileName = `hipaa-compliance-${Date.now()}.pdf`;
+      
+      const { error } = await supabase.storage
+        .from('compliance-docs')
+        .upload(fileName, file);
+
+      if (error) throw error;
+
+      setUploadedFile(fileName);
+      toast({
+        title: "Success",
+        description: "HIPAA compliance document uploaded successfully",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to upload document. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const handleDownload = async () => {
+    if (!uploadedFile) return;
+
+    try {
+      const { data } = await supabase.storage
+        .from('compliance-docs')
+        .download(uploadedFile);
+
+      if (data) {
+        const url = URL.createObjectURL(data);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'HIPAA-Compliance-Document.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to download document. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
   return <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <main className="pt-20">
@@ -105,32 +186,53 @@ const LegalCompliancePage = () => {
                       Our comprehensive terms of service and privacy policy outline how we 
                       protect your data and define our service commitments.
                     </p>
-                    <div className="border-2 border-dashed border-primary/30 rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
-                      <input
-                        type="file"
-                        accept=".pdf"
-                        className="hidden"
-                        id="hipaa-pdf-upload"
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file) {
-                            console.log('HIPAA PDF uploaded:', file.name);
-                          }
-                        }}
-                      />
-                      <label
-                        htmlFor="hipaa-pdf-upload"
-                        className="cursor-pointer flex flex-col items-center space-y-2"
-                      >
-                        <FileCheck className="text-primary" size={24} />
-                        <span className="text-sm text-muted-foreground">
-                          Drop your HIPAA Compliance PDF here or click to browse
-                        </span>
-                        <span className="text-xs text-muted-foreground">
-                          PDF files only
-                        </span>
-                      </label>
-                    </div>
+                    {!uploadedFile ? (
+                      <div className="border-2 border-dashed border-primary/30 rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
+                        <input
+                          type="file"
+                          accept=".pdf"
+                          className="hidden"
+                          id="hipaa-pdf-upload"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              handleFileUpload(file);
+                            }
+                          }}
+                        />
+                        <label
+                          htmlFor="hipaa-pdf-upload"
+                          className="cursor-pointer flex flex-col items-center space-y-2"
+                        >
+                          {isUploading ? (
+                            <Upload className="text-primary animate-pulse" size={24} />
+                          ) : (
+                            <FileCheck className="text-primary" size={24} />
+                          )}
+                          <span className="text-sm text-muted-foreground">
+                            {isUploading ? "Uploading..." : "Drop your HIPAA Compliance PDF here or click to browse"}
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            PDF files only
+                          </span>
+                        </label>
+                      </div>
+                    ) : (
+                      <div className="space-y-2">
+                        <button
+                          onClick={handleDownload}
+                          className="block text-primary hover:text-primary/80 transition-colors underline text-left"
+                        >
+                          Download HIPAA Compliance Document
+                        </button>
+                        <button
+                          onClick={() => setUploadedFile(null)}
+                          className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          Upload a different document
+                        </button>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </div>
