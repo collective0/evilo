@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,9 +37,9 @@ const Navigation = () => {
             <a href="#about" className="text-foreground hover:text-primary transition-colors duration-200">
               About
             </a>
-            <a href="#legal" className="text-foreground hover:text-primary transition-colors duration-200">
+            <Link to="/legal-compliance" className="text-foreground hover:text-primary transition-colors duration-200">
               Legal & Compliance
-            </a>
+            </Link>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors duration-200">
               Contact
             </a>
@@ -88,13 +89,13 @@ const Navigation = () => {
               >
                 About
               </a>
-              <a
-                href="#legal"
+              <Link
+                to="/legal-compliance"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Legal & Compliance
-              </a>
+              </Link>
               <a
                 href="#contact"
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
