@@ -1,10 +1,8 @@
 import { Shield, FileCheck, Lock, Users, CheckCircle } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
-
 const LegalCompliancePage = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  return <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <main className="pt-20">
         <section className="py-20 bg-gradient-to-br from-background to-secondary/20">
@@ -84,7 +82,7 @@ const LegalCompliancePage = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="text-green-500" size={20} />
-                    <span className="text-foreground">State-specific Privacy Regulations</span>
+                    <span className="text-foreground">Province-specific Privacy Regulations</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="text-green-500" size={20} />
@@ -108,22 +106,13 @@ const LegalCompliancePage = () => {
                       protect your data and define our service commitments.
                     </p>
                     <div className="space-y-2">
-                      <a 
-                        href="#" 
-                        className="block text-primary hover:text-primary/80 transition-colors underline"
-                      >
+                      <a href="#" className="block text-primary hover:text-primary/80 transition-colors underline">
                         View Terms of Service
                       </a>
-                      <a 
-                        href="#" 
-                        className="block text-primary hover:text-primary/80 transition-colors underline"
-                      >
+                      <a href="#" className="block text-primary hover:text-primary/80 transition-colors underline">
                         View Privacy Policy
                       </a>
-                      <a 
-                        href="#" 
-                        className="block text-primary hover:text-primary/80 transition-colors underline"
-                      >
+                      <a href="#" className="block text-primary hover:text-primary/80 transition-colors underline">
                         Business Associate Agreement
                       </a>
                     </div>
@@ -134,8 +123,6 @@ const LegalCompliancePage = () => {
           </div>
         </section>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default LegalCompliancePage;
