@@ -243,12 +243,6 @@ const LegalCompliancePage = () => {
                         >
                           Download HIPAA Compliance Document
                         </button>
-                        <button
-                          onClick={() => setUploadedFile(null)}
-                          className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
-                        >
-                          Upload a different document
-                        </button>
                       </div>
                     )}
                   </CardContent>
