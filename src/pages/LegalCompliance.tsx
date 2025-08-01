@@ -25,21 +25,38 @@ const LegalCompliancePage = () => {
   }, []);
 
   const handleFileUpload = async (file: File) => {
+    if (!file || file.type !== 'application/pdf') {
+      toast({
+        title: "Error",
+        description: "Please select a valid PDF file",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsUploading(true);
+    console.log('Starting file upload:', file.name);
     
     try {
       // Remove existing file if any
       if (uploadedFile) {
+        console.log('Removing existing file:', uploadedFile);
         await supabase.storage.from('compliance-docs').remove([uploadedFile]);
       }
 
       const fileName = `hipaa-compliance-${Date.now()}.pdf`;
+      console.log('Uploading new file:', fileName);
       
-      const { error } = await supabase.storage
+      const { data, error } = await supabase.storage
         .from('compliance-docs')
         .upload(fileName, file);
 
-      if (error) throw error;
+      console.log('Upload result:', { data, error });
+
+      if (error) {
+        console.error('Upload error:', error);
+        throw error;
+      }
 
       setUploadedFile(fileName);
       toast({
@@ -47,9 +64,10 @@ const LegalCompliancePage = () => {
         description: "HIPAA compliance document uploaded successfully",
       });
     } catch (error) {
+      console.error('Upload failed:', error);
       toast({
         title: "Error",
-        description: "Failed to upload document. Please try again.",
+        description: `Failed to upload document: ${error.message}`,
         variant: "destructive",
       });
     } finally {
