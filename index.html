@@ -104,6 +104,20 @@
   box-shadow:0 0 0 1px rgba(255,255,255,.18) inset;
 }
 
+    /* ================= Interactive Workflow ================= */
+    /* Container for interactive workflow diagram */
+    .workflow-box{position:relative;width:100%;height:100%;}
+    .workflow-lines{position:absolute;top:0;left:0;width:100%;height:100%;}
+    .workflow-lines line{stroke:rgba(47,124,246,0.5);stroke-width:2;}
+    /* central node styling */
+    .workflow-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:flex;align-items:center;justify-content:center;font-size:28px;}
+    /* orbiting nodes styling */
+    .workflow-node{position:absolute;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1e3a8a,#4f46e5);display:flex;align-items:center;justify-content:center;font-size:24px;transition:transform .4s,box-shadow .4s;}
+    .workflow-node.node-top{top:5%;left:50%;transform:translate(-50%,0);}
+    .workflow-node.node-right{top:50%;left:95%;transform:translate(-100%,-50%);}
+    .workflow-node.node-bottom{top:95%;left:50%;transform:translate(-50%,-100%);}
+    .workflow-node.node-left{top:50%;left:5%;transform:translate(0,-50%);}
+    .workflow-node.active{transform:scale(1.15);box-shadow:0 0 12px rgba(47,124,246,.6);}    
 </style>
 </head>
 <body>
@@ -293,7 +307,22 @@
       </div>
       <div class="panel" style="padding:1px;border-radius:20px">
         <div class="panel" style="border-radius:20px;padding:18px">
-          <div class="media-box" style="height:300px"><img src="./workflow.png" alt="Sophisticated workflow" style="width:100%;height:100%;object-fit:contain;border-radius:12px"/></div>
+          <div class="media-box" style="height:300px">
+            <!-- Live interactive workflow diagram -->
+            <div class="workflow-box">
+              <svg class="workflow-lines" viewBox="0 0 200 200">
+                <line x1="100" y1="100" x2="100" y2="30" />
+                <line x1="100" y1="100" x2="170" y2="100" />
+                <line x1="100" y1="100" x2="100" y2="170" />
+                <line x1="100" y1="100" x2="30" y2="100" />
+              </svg>
+              <div class="workflow-center">🧠</div>
+              <div class="workflow-node node-top">⚡</div>
+              <div class="workflow-node node-right">🎯</div>
+              <div class="workflow-node node-bottom">✨</div>
+              <div class="workflow-node node-left">🤖</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -471,6 +500,24 @@
     window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') close(); });
   })();
 </script>
+
+  <!-- Interactive workflow animation -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const nodes = document.querySelectorAll('.workflow-node');
+    let idx = 0;
+    if (nodes.length) {
+      // initialize first active node
+      nodes.forEach(n => n.classList.remove('active'));
+      nodes[0].classList.add('active');
+      setInterval(() => {
+        nodes[idx].classList.remove('active');
+        idx = (idx + 1) % nodes.length;
+        nodes[idx].classList.add('active');
+      }, 3000);
+    }
+  });
+  </script>
 
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
