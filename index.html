@@ -668,7 +668,8 @@
           <div class="media-box">
             <!-- Enhanced promotional panel for the hero section -->
             <div class="promo">
-              <h3 class="promo-heading">Automated Customer Management Solutions for the <span class="industry">Dental</span> Industry</h3>
+              <!-- Updated to include Industry term within the rotating span -->
+              <h3 class="promo-heading">Automated Customer Management Solutions for the <span class="industry">Dental Industry</span></h3>
               <div class="features-carousel">
                 <!-- Each feature is wrapped in its own item for carousel animation -->
                 <div class="feature-item active"><strong>Integrated AI assistant</strong> handles onboarding, scheduling, management, follow ups and communication.</div>
@@ -1011,7 +1012,15 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Industry names to cycle through
-    const industries = ["Dental","Salon","Manufacturing","Industrial","Medical","Beauty"];
+    // Include the word “Industry” in each entry so the entire phrase rotates
+    const industries = [
+      "Dental Industry",
+      "Salon Industry",
+      "Manufacturing Industry",
+      "Industrial Industry",
+      "Medical Industry",
+      "Beauty Industry"
+    ];
     let industryIndex = 0;
     const industryEl = document.querySelector('.promo .industry');
     // Function to update industry text with fade animation
