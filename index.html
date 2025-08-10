@@ -540,6 +540,48 @@
       left:42%;
       top:20%;
     }
+
+    /* Promotional panel styling for hero section */
+    .promo{
+      background:linear-gradient(180deg,#0e152b,#0d1a36);
+      padding:20px;
+      border-radius:16px;
+      color:#f1f5f9;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    }
+    .promo-heading{
+      font-size:20px;
+      font-weight:600;
+      line-height:1.4;
+      margin-bottom:16px;
+    }
+    .promo-heading .industry{
+      color:var(--brand);
+      font-weight:700;
+    }
+    .promo-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .promo-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      margin-bottom:10px;
+      font-size:14px;
+      line-height:1.4;
+    }
+    .promo-list li::before{
+      content:'';
+      display:inline-block;
+      width:8px;
+      height:8px;
+      margin-top:6px;
+      border-radius:50%;
+      background:var(--brand);
+      flex-shrink:0;
+    }
 </style>
 </head>
 <body>
@@ -608,9 +650,16 @@
       <div>
         <div class="hero-media"><div class="inner">
           <div class="media-box">
-            <div style="text-align:center">
-              <div style="color:#e5e7eb;font-weight:600">Your dashboard / widget preview</div>
-              <div class="muted" style="font-size:12px">(replace with real capture)</div>
+            <!-- Promotional panel for the hero section -->
+            <div class="promo">
+              <h3 class="promo-heading">Automated Customer Management Solutions for the <span class="industry">Dental</span> Industry</h3>
+              <ul class="promo-list">
+                <li><strong>Integrated AI assistant</strong> handles onboarding, scheduling, management, follow ups and communication.</li>
+                <li><strong>Customizable schedules</strong> that fit your needs.</li>
+                <li><strong>Analytics & insights</strong> to make data‑driven decisions.</li>
+                <li><strong>Easy 2‑way communication</strong> through email, SMS, and chat.</li>
+                <li><strong>Customer directories & appointment history</strong> at your fingertips.</li>
+              </ul>
             </div>
           </div>
         </div></div>
@@ -931,6 +980,21 @@
         wfIndex = index;
       });
     });
+  });
+  </script>
+
+  <!-- Dynamic industry rotation for promo panel -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const industries = ["Dental","Salon","Manufacturing","Industrial","Medical","Beauty"];
+    let ii = 0;
+    const industryEl = document.querySelector('.promo .industry');
+    if (industryEl) {
+      setInterval(() => {
+        ii = (ii + 1) % industries.length;
+        industryEl.textContent = industries[ii];
+      }, 3000);
+    }
   });
   </script>
 
