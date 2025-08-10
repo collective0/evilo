@@ -59,11 +59,11 @@ const Navigation = () => {
               {isDropdownOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-background/95 backdrop-blur-sm border border-border rounded-lg shadow-lg py-2 z-50">
                   <Link 
-                    to="/evilo-software"
+                    to="/software-preview"
                     onClick={() => setIsDropdownOpen(false)}
                     className="block w-full text-left px-4 py-2 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
                   >
-                    Software Features
+                    Software Preview
                   </Link>
                   <button 
                     onClick={() => {
@@ -146,14 +146,14 @@ const Navigation = () => {
                 {isDropdownOpen && (
                   <div className="ml-4 mt-2 space-y-1">
                     <Link
-                      to="/evilo-software"
+                      to="/software-preview"
                       onClick={() => {
                         setIsDropdownOpen(false);
                         setIsOpen(false);
                       }}
                       className="block w-full text-left px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      Software Features
+                      Software Preview
                     </Link>
                     <button 
                       onClick={() => {
