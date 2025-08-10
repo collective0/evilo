@@ -407,24 +407,30 @@
       transform:translateY(-50%);
     }
     .workflow-lines line{
-      stroke:rgba(255,255,255,0.15);
+      /* subtle continuous lines connecting workflow steps */
+      stroke:rgba(47,124,246,0.4);
       stroke-width:2;
       stroke-linecap:round;
-      stroke-dasharray:4 4;
+      /* removed dashed pattern for a sleeker look */
     }
     .workflow-node{
       position:absolute;
       top:50%;
       transform:translate(-50%,-50%);
-      width:64px;
-      height:64px;
+      width:56px;
+      height:56px;
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
+      /* unified blue palette for workflow steps */
       background:linear-gradient(135deg,var(--brand),var(--brand-2));
       box-shadow:0 0 0 0 rgba(0,0,0,0);
-      transition:transform .3s, box-shadow .3s, background .3s;
+      transition:transform .3s, box-shadow .3s;
+    }
+    /* grey variant for the remind step */
+    .workflow-node.grey{
+      background:linear-gradient(135deg,#4B5563,#2a3340);
     }
     .workflow-node::after{
       content:attr(data-label);
@@ -732,11 +738,11 @@
                 <line x1="50" y1="5" x2="70" y2="5"></line>
                 <line x1="70" y1="5" x2="90" y2="5"></line>
               </svg>
-              <div class="workflow-node" style="left:10%;background:linear-gradient(135deg,#2F7CF6,#7F82FF);" data-label="Capture Data"><div class="workflow-icon star"></div></div>
-              <div class="workflow-node" style="left:30%;background:linear-gradient(135deg,#6366F1,#8B5CF6);" data-label="Schedule"><div class="workflow-icon target"></div></div>
-              <div class="workflow-node" style="left:50%;background:linear-gradient(135deg,#6B7280,#4B5563);" data-label="Remind"><div class="workflow-icon lightning"></div></div>
-              <div class="workflow-node" style="left:70%;background:linear-gradient(135deg,#10B981,#6EE7B7);" data-label="Communicate"><div class="workflow-icon message"></div></div>
-              <div class="workflow-node" style="left:90%;background:linear-gradient(135deg,#F472B6,#EC4899);" data-label="Analyze"><div class="workflow-icon cog"></div></div>
+              <div class="workflow-node" style="left:10%;" data-label="Capture Data"><div class="workflow-icon star"></div></div>
+              <div class="workflow-node" style="left:30%;" data-label="Schedule"><div class="workflow-icon target"></div></div>
+              <div class="workflow-node grey" style="left:50%;" data-label="Remind"><div class="workflow-icon lightning"></div></div>
+              <div class="workflow-node" style="left:70%;" data-label="Communicate"><div class="workflow-icon message"></div></div>
+              <div class="workflow-node" style="left:90%;" data-label="Analyze"><div class="workflow-icon cog"></div></div>
             </div>
           </div>
         </div>
