@@ -906,14 +906,14 @@
           <input type="hidden" name="_subject" value="New message from Evilo website" />
           <input type="hidden" name="_next" value="https://evilo.ca/" />
           <div class="row row-2">
-            <div><label class="eyebrow">First Name</label><input class="input" placeholder="Jane"/></div>
-            <div><label class="eyebrow">Last Name</label><input class="input" placeholder="Doe"/></div>
+            <div><label class="eyebrow">First Name</label><input class="input" name="first_name" placeholder="Jane"/></div>
+            <div><label class="eyebrow">Last Name</label><input class="input" name="last_name" placeholder="Doe"/></div>
           </div>
           <div class="row row-2" style="margin-top:12px">
-            <div><label class="eyebrow">Email</label><input class="input" placeholder="you@company.com"/></div>
-            <div><label class="eyebrow">Company</label><input class="input" placeholder="Business or Clinic"/></div>
+            <div><label class="eyebrow">Email</label><input class="input" type="email" name="email" placeholder="you@company.com"/></div>
+            <div><label class="eyebrow">Company</label><input class="input" name="company" placeholder="Business or Clinic"/></div>
           </div>
-          <div style="margin-top:12px"><label class="eyebrow">Message</label><textarea class="input" placeholder="What processes should Evilo automate? (scheduling, intake, dispatch, POS, etc.)"></textarea></div>
+          <div style="margin-top:12px"><label class="eyebrow">Message</label><textarea class="input" name="message" placeholder="What processes should Evilo automate? (scheduling, intake, dispatch, POS, etc.)"></textarea></div>
           <div style="margin-top:16px;display:flex;gap:10px;justify-content:flex-end">
             <button class="btn btn-primary" type="submit">Send Message</button>
           </div>
