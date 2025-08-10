@@ -30,11 +30,13 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/5473a23d-5f2b-4427-aad0-101aa58ae6eb.png" 
-              alt="Evilo Business Solutions" 
-              className="h-12 w-auto"
-            />
+            <Link to="/">
+              <img 
+                src="/lovable-uploads/5473a23d-5f2b-4427-aad0-101aa58ae6eb.png" 
+                alt="Evilo Business Solutions" 
+                className="h-10 w-auto max-w-[150px] object-contain"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -77,9 +79,6 @@ const Navigation = () => {
                 </div>
               )}
             </div>
-            <button onClick={() => handleNavigation('contact')} className="text-foreground hover:text-primary transition-colors duration-200">
-              Contact
-            </button>
             <button onClick={() => handleNavigation('contact')} className="text-foreground hover:text-primary transition-colors duration-200">
               Contact
             </button>
@@ -168,15 +167,6 @@ const Navigation = () => {
                   </div>
                 )}
               </div>
-              <button
-                onClick={() => {
-                  handleNavigation('contact');
-                  setIsOpen(false);
-                }}
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200 w-full text-left"
-              >
-                Contact
-              </button>
               <button
                 onClick={() => {
                   handleNavigation('contact');
