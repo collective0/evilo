@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 
-const SoftwarePreview = () => {
+const SoftwarePage = () => {
   const [activeFeature, setActiveFeature] = useState(0);
 
   const features = [
@@ -62,7 +62,7 @@ const SoftwarePreview = () => {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
               Evilo Business Management
-              <span className="text-primary block">Software Preview</span>
+              <span className="text-primary block">Software</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Experience the power of automated business management. Save 10+ hours weekly while increasing revenue and client satisfaction.
@@ -265,4 +265,4 @@ const SoftwarePreview = () => {
   );
 };
 
-export default SoftwarePreview;
+export default SoftwarePage;
