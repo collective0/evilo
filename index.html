@@ -390,6 +390,66 @@
       transform:translate(-50%,-50%);
       border-radius:1px;
     }
+
+    /* ===================================================================== */
+    /* Workflow diagram styles */
+    .workflow-diagram{
+      position:relative;
+      width:100%;
+      height:220px;
+    }
+    .workflow-lines{
+      position:absolute;
+      top:50%;
+      left:0;
+      width:100%;
+      height:4px;
+      transform:translateY(-50%);
+    }
+    .workflow-lines line{
+      stroke:rgba(255,255,255,0.15);
+      stroke-width:2;
+    }
+    .workflow-node{
+      position:absolute;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:20px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:0 0 0 0 rgba(0,0,0,0);
+      transition:transform .3s, box-shadow .3s, background .3s;
+    }
+    .workflow-node::after{
+      content:attr(data-label);
+      position:absolute;
+      top:70px;
+      left:50%;
+      transform:translateX(-50%) translateY(8px);
+      background:rgba(30,41,59,0.8);
+      border-radius:8px;
+      padding:4px 8px;
+      font-size:14px;
+      color:#fff;
+      white-space:nowrap;
+      opacity:0;
+      transition:opacity .3s, transform .3s;
+      pointer-events:none;
+    }
+    .workflow-node.active{
+      transform:translate(-50%,-50%) scale(1.1);
+      box-shadow:0 0 12px rgba(47,124,246,0.6);
+    }
+    .workflow-node.active::after{
+      opacity:1;
+      transform:translateX(-50%) translateY(0);
+    }
 </style>
 </head>
 <body>
@@ -580,26 +640,19 @@
       <div class="panel" style="padding:1px;border-radius:20px">
         <div class="panel" style="border-radius:20px;padding:18px">
           <div class="media-box" style="height:300px">
-            <!-- Interactive AI Revolution diagram -->
-            <div class="evilo-diagram" id="evilo-diagram">
-              <svg class="evilo-lines" viewBox="0 0 200 200" preserveAspectRatio="none">
-                <line x1="100" y1="100" x2="60" y2="40"></line>
-                <line x1="100" y1="100" x2="140" y2="50"></line>
-                <line x1="100" y1="100" x2="170" y2="100"></line>
-                <line x1="100" y1="100" x2="60" y2="160"></line>
-                <line x1="100" y1="100" x2="120" y2="170"></line>
+            <!-- Workflow steps interactive diagram -->
+            <div class="workflow-diagram" id="workflow-diagram">
+              <svg class="workflow-lines" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <line x1="10" y1="5" x2="30" y2="5"></line>
+                <line x1="30" y1="5" x2="50" y2="5"></line>
+                <line x1="50" y1="5" x2="70" y2="5"></line>
+                <line x1="70" y1="5" x2="90" y2="5"></line>
               </svg>
-              <div class="evilo-center"><span></span></div>
-              <!-- decorative dots -->
-              <div class="evilo-dot" style="top:20%;left:45%;"></div>
-              <div class="evilo-dot" style="top:35%;left:60%;"></div>
-              <div class="evilo-dot" style="top:70%;left:30%;"></div>
-              <div class="evilo-dot" style="top:85%;left:80%;"></div>
-              <div class="evilo-node star" style="top:20%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Innovation"></div>
-              <div class="evilo-node brain" style="top:25%;left:70%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="AI Intelligence"><span></span></div>
-              <div class="evilo-node lightning" style="top:50%;left:85%;background:linear-gradient(135deg,#6b7280,#4b5563);" data-label="Automation"></div>
-              <div class="evilo-node target" style="top:80%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Precision"></div>
-              <div class="evilo-node cog" style="top:85%;left:60%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Efficiency"></div>
+              <div class="workflow-node" style="left:10%;" data-label="Capture Data"><span>1</span></div>
+              <div class="workflow-node" style="left:30%;" data-label="Schedule"><span>2</span></div>
+              <div class="workflow-node" style="left:50%;background:linear-gradient(135deg,#6b7280,#4b5563);" data-label="Remind"><span>3</span></div>
+              <div class="workflow-node" style="left:70%;" data-label="Communicate"><span>4</span></div>
+              <div class="workflow-node" style="left:90%;" data-label="Analyze"><span>5</span></div>
             </div>
           </div>
         </div>
@@ -762,6 +815,33 @@
       requestAnimationFrame(step);
     }
     addEventListener('resize', resize); resize(); step();
+  </script>
+
+  <!-- Workflow animation script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const wfNodes = document.querySelectorAll('#workflow-diagram .workflow-node');
+    if (!wfNodes.length) return;
+    let wfIndex = 0;
+    function highlightWF(index) {
+      wfNodes.forEach(n => n.classList.remove('active'));
+      wfNodes[index].classList.add('active');
+    }
+    // highlight first workflow node
+    highlightWF(wfIndex);
+    // cycle through workflow nodes every 3 seconds
+    setInterval(() => {
+      wfIndex = (wfIndex + 1) % wfNodes.length;
+      highlightWF(wfIndex);
+    }, 3000);
+    // hover to select workflow node and update index
+    wfNodes.forEach((node, index) => {
+      node.addEventListener('mouseenter', () => {
+        highlightWF(index);
+        wfIndex = index;
+      });
+    });
+  });
   </script>
 
 <script>
