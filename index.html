@@ -248,6 +248,80 @@
       opacity:1;
       transform:translateX(-50%) translateY(0);
     }
+
+    .evilo-dot{
+      position:absolute;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.15);
+    }
+
+    /* Custom shapes for interactive nodes */
+    .evilo-node.star::before{
+      content:"";
+      position:absolute;
+      width:24px;
+      height:24px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      background:#fff;
+      clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    .evilo-node.lightning::before{
+      content:"";
+      position:absolute;
+      width:14px;
+      height:24px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      background:#fff;
+      clip-path:polygon(0 0, 60% 0, 40% 40%, 80% 40%, 20% 100%, 40% 60%, 0 60%);
+    }
+    .evilo-node.target::before{
+      content:"";
+      position:absolute;
+      width:24px;
+      height:24px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      border:3px solid #fff;
+      border-radius:50%;
+    }
+    .evilo-node.target::after{
+      content:"";
+      position:absolute;
+      width:8px;
+      height:8px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      background:#fff;
+      border-radius:50%;
+    }
+    .evilo-node.cog::before{
+      content:"";
+      position:absolute;
+      width:2px;
+      height:22px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      background:#fff;
+    }
+    .evilo-node.cog::after{
+      content:"";
+      position:absolute;
+      width:22px;
+      height:2px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      background:#fff;
+    }
 </style>
 </head>
 <body>
@@ -448,11 +522,16 @@
                 <line x1="100" y1="100" x2="120" y2="170"></line>
               </svg>
               <div class="evilo-center">🧠</div>
-              <div class="evilo-node" style="top:25%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Innovation">✨</div>
-              <div class="evilo-node" style="top:15%;left:70%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="AI Intelligence">🧠</div>
-              <div class="evilo-node" style="top:50%;left:85%;background:linear-gradient(135deg,#6b7280,#4b5563);" data-label="Automation">⚡</div>
-              <div class="evilo-node" style="top:75%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Quality">🎯</div>
-              <div class="evilo-node" style="top:80%;left:60%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Efficiency">⚙️</div>
+              <!-- decorative dots -->
+              <div class="evilo-dot" style="top:20%;left:45%;"></div>
+              <div class="evilo-dot" style="top:35%;left:60%;"></div>
+              <div class="evilo-dot" style="top:70%;left:30%;"></div>
+              <div class="evilo-dot" style="top:85%;left:80%;"></div>
+              <div class="evilo-node star" style="top:25%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Innovation"></div>
+              <div class="evilo-node brain" style="top:15%;left:70%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="AI Intelligence">🧠</div>
+              <div class="evilo-node lightning" style="top:50%;left:85%;background:linear-gradient(135deg,#6b7280,#4b5563);" data-label="Automation"></div>
+              <div class="evilo-node target" style="top:75%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Precision"></div>
+              <div class="evilo-node cog" style="top:80%;left:60%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Efficiency"></div>
             </div>
           </div>
         </div>
