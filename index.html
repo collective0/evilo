@@ -142,39 +142,111 @@
       transition:transform .4s,box-shadow .4s;
     }
     /* individual node positions and colors */
-    .node-top-right{
-      top:20%;
+    /* positions for a sophisticated AI revolution diagram */
+    .node-star{
+      top:35%;
+      left:30%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    }
+    .node-brain{
+      top:35%;
       left:70%;
       transform:translate(-50%,-50%);
-      background:linear-gradient(135deg,#3b82f6,#6366f1);
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
     }
-    .node-left{
-      top:50%;
-      left:15%;
+    .node-grey{
+      top:55%;
+      left:80%;
       transform:translate(-50%,-50%);
-      background:linear-gradient(135deg,#64748b,#475569);
+      background:linear-gradient(135deg,#6b7280,#4b5563);
+      color:#fff;
     }
-    .node-bottom-left{
-      top:80%;
+    .node-target{
+      top:65%;
       left:40%;
       transform:translate(-50%,-50%);
-      background:linear-gradient(135deg,#475569,#334155);
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
     }
-    .node-bottom{
-      top:88%;
-      left:50%;
+    .node-cross{
+      top:80%;
+      left:55%;
       transform:translate(-50%,-50%);
-      background:linear-gradient(135deg,#475569,#334155);
-    }
-    .node-right{
-      top:55%;
-      left:85%;
-      transform:translate(-50%,-50%);
-      background:linear-gradient(135deg,#64748b,#475569);
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
     }
     .workflow-node.active{
       transform:scale(1.15);
       box-shadow:0 0 12px rgba(47,124,246,0.6);
+    }
+
+    /* ===== AI Revolution interactive diagram ===== */
+    .evilo-diagram{
+      position:relative;
+      width:100%;
+      height:100%;
+    }
+    .evilo-lines{
+      position:absolute;
+      width:100%;
+      height:100%;
+    }
+    .evilo-lines line{
+      stroke:var(--brand);
+      stroke-width:2;
+      opacity:0.8;
+    }
+    .evilo-center{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:80px;
+      height:80px;
+      border-radius:50%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:32px;
+      color:#fff;
+      box-shadow:0 0 0 8px rgba(47,124,246,0.2),0 0 0 16px rgba(47,124,246,0.1);
+    }
+    .evilo-node{
+      position:absolute;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:24px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      transition:transform .3s,box-shadow .3s;
+    }
+    .evilo-node::after{
+      content:attr(data-label);
+      position:absolute;
+      top:64px;
+      left:50%;
+      transform:translateX(-50%) translateY(8px);
+      background:rgba(30,41,59,0.8);
+      border-radius:8px;
+      padding:4px 8px;
+      font-size:14px;
+      color:#fff;
+      white-space:nowrap;
+      opacity:0;
+      transition:opacity .3s, transform .3s;
+      pointer-events:none;
+    }
+    .evilo-node.active{
+      transform:scale(1.1);
+      box-shadow:0 0 12px rgba(47,124,246,0.6);
+    }
+    .evilo-node.active::after{
+      opacity:1;
+      transform:translateX(-50%) translateY(0);
     }
 </style>
 </head>
@@ -366,24 +438,21 @@
       <div class="panel" style="padding:1px;border-radius:20px">
         <div class="panel" style="border-radius:20px;padding:18px">
           <div class="media-box" style="height:300px">
-            <!-- Live interactive workflow diagram -->
-            <div class="workflow-box">
-              <svg class="workflow-lines" viewBox="0 0 200 200">
-                <!-- lines connecting center to each orbiting node -->
-                <line x1="100" y1="100" x2="160" y2="40" />
-                <line x1="100" y1="100" x2="30" y2="100" />
-                <line x1="100" y1="100" x2="80" y2="160" />
-                <line x1="100" y1="100" x2="100" y2="180" />
-                <line x1="100" y1="100" x2="170" y2="110" />
+            <!-- Interactive AI Revolution diagram -->
+            <div class="evilo-diagram" id="evilo-diagram">
+              <svg class="evilo-lines" viewBox="0 0 200 200" preserveAspectRatio="none">
+                <line x1="100" y1="100" x2="60" y2="40"></line>
+                <line x1="100" y1="100" x2="140" y2="50"></line>
+                <line x1="100" y1="100" x2="170" y2="100"></line>
+                <line x1="100" y1="100" x2="60" y2="160"></line>
+                <line x1="100" y1="100" x2="120" y2="170"></line>
               </svg>
-              <!-- central node -->
-              <div class="workflow-center">🧠</div>
-              <!-- orbiting nodes at custom positions -->
-              <div class="workflow-node node-top-right">💡</div>
-              <div class="workflow-node node-left">🌟</div>
-              <div class="workflow-node node-bottom-left">🎯</div>
-              <div class="workflow-node node-bottom">⚙️</div>
-              <div class="workflow-node node-right">🤖</div>
+              <div class="evilo-center">🧠</div>
+              <div class="evilo-node" style="top:25%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Innovation">✨</div>
+              <div class="evilo-node" style="top:15%;left:70%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="AI Intelligence">🧠</div>
+              <div class="evilo-node" style="top:50%;left:85%;background:linear-gradient(135deg,#6b7280,#4b5563);" data-label="Automation">⚡</div>
+              <div class="evilo-node" style="top:75%;left:30%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Quality">🎯</div>
+              <div class="evilo-node" style="top:80%;left:60%;background:linear-gradient(135deg,#2563eb,#1d4ed8);" data-label="Efficiency">⚙️</div>
             </div>
           </div>
         </div>
@@ -564,21 +633,30 @@
   })();
 </script>
 
-  <!-- Interactive workflow animation -->
+  <!-- Interactive AI Revolution animation -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const nodes = document.querySelectorAll('.workflow-node');
+    const nodes = document.querySelectorAll('.evilo-diagram .evilo-node');
+    if (!nodes.length) return;
     let idx = 0;
-    if (nodes.length) {
-      // initialize first active node
+    function highlight(index) {
       nodes.forEach(n => n.classList.remove('active'));
-      nodes[0].classList.add('active');
-      setInterval(() => {
-        nodes[idx].classList.remove('active');
-        idx = (idx + 1) % nodes.length;
-        nodes[idx].classList.add('active');
-      }, 3000);
+      nodes[index].classList.add('active');
     }
+    // Highlight the first node initially
+    highlight(idx);
+    // Cycle through nodes every 3 seconds
+    setInterval(() => {
+      idx = (idx + 1) % nodes.length;
+      highlight(idx);
+    }, 3000);
+    // Hover to select node and update index
+    nodes.forEach((node, index) => {
+      node.addEventListener('mouseenter', () => {
+        highlight(index);
+        idx = index;
+      });
+    });
   });
   </script>
 
