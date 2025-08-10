@@ -108,16 +108,74 @@
     /* Container for interactive workflow diagram */
     .workflow-box{position:relative;width:100%;height:100%;}
     .workflow-lines{position:absolute;top:0;left:0;width:100%;height:100%;}
+    /* connecting lines from center to each node */
     .workflow-lines line{stroke:rgba(47,124,246,0.5);stroke-width:2;}
-    /* central node styling */
-    .workflow-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:flex;align-items:center;justify-content:center;font-size:28px;}
-    /* orbiting nodes styling */
-    .workflow-node{position:absolute;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#1e3a8a,#4f46e5);display:flex;align-items:center;justify-content:center;font-size:24px;transition:transform .4s,box-shadow .4s;}
-    .workflow-node.node-top{top:5%;left:50%;transform:translate(-50%,0);}
-    .workflow-node.node-right{top:50%;left:95%;transform:translate(-100%,-50%);}
-    .workflow-node.node-bottom{top:95%;left:50%;transform:translate(-50%,-100%);}
-    .workflow-node.node-left{top:50%;left:5%;transform:translate(0,-50%);}
-    .workflow-node.active{transform:scale(1.15);box-shadow:0 0 12px rgba(47,124,246,.6);}    
+    /* central node styling with concentric rings */
+    .workflow-center{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      /* multi‑ring effect */
+      box-shadow:
+        0 0 0 8px rgba(47,124,246,0.2),
+        0 0 0 16px rgba(47,124,246,0.1);
+    }
+    /* base styling for orbiting nodes */
+    .workflow-node{
+      position:absolute;
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:24px;
+      transition:transform .4s,box-shadow .4s;
+    }
+    /* individual node positions and colors */
+    .node-top-right{
+      top:20%;
+      left:70%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,#3b82f6,#6366f1);
+    }
+    .node-left{
+      top:50%;
+      left:15%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,#64748b,#475569);
+    }
+    .node-bottom-left{
+      top:80%;
+      left:40%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,#475569,#334155);
+    }
+    .node-bottom{
+      top:88%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,#475569,#334155);
+    }
+    .node-right{
+      top:55%;
+      left:85%;
+      transform:translate(-50%,-50%);
+      background:linear-gradient(135deg,#64748b,#475569);
+    }
+    .workflow-node.active{
+      transform:scale(1.15);
+      box-shadow:0 0 12px rgba(47,124,246,0.6);
+    }
 </style>
 </head>
 <body>
@@ -311,16 +369,21 @@
             <!-- Live interactive workflow diagram -->
             <div class="workflow-box">
               <svg class="workflow-lines" viewBox="0 0 200 200">
-                <line x1="100" y1="100" x2="100" y2="30" />
-                <line x1="100" y1="100" x2="170" y2="100" />
-                <line x1="100" y1="100" x2="100" y2="170" />
+                <!-- lines connecting center to each orbiting node -->
+                <line x1="100" y1="100" x2="160" y2="40" />
                 <line x1="100" y1="100" x2="30" y2="100" />
+                <line x1="100" y1="100" x2="80" y2="160" />
+                <line x1="100" y1="100" x2="100" y2="180" />
+                <line x1="100" y1="100" x2="170" y2="110" />
               </svg>
+              <!-- central node -->
               <div class="workflow-center">🧠</div>
-              <div class="workflow-node node-top">⚡</div>
-              <div class="workflow-node node-right">🎯</div>
-              <div class="workflow-node node-bottom">✨</div>
-              <div class="workflow-node node-left">🤖</div>
+              <!-- orbiting nodes at custom positions -->
+              <div class="workflow-node node-top-right">💡</div>
+              <div class="workflow-node node-left">🌟</div>
+              <div class="workflow-node node-bottom-left">🎯</div>
+              <div class="workflow-node node-bottom">⚙️</div>
+              <div class="workflow-node node-right">🤖</div>
             </div>
           </div>
         </div>
