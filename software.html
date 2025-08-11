@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evilo Software | Automated Customer Management</title>
+  <style>
+    /* ================= Base / Reset ================= */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:#070b1a;color:#e5e7eb;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    :root{
+      --bg:#070b1a;
+      --panel:#0b1124;
+      --ring:rgba(255,255,255,.08);
+      --muted:#9ca3af;
+      --brand:#2F7CF6;
+      --brand-2:#7FB2FF;
+      --ok:#34d399;
+    }
+    .container{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+    section{padding:84px 0}
+    .row{display:grid;gap:28px}
+    @media(min-width:992px){.row-2{grid-template-columns:1fr 1fr}.row-3{grid-template-columns:repeat(3,1fr)}.row-4{grid-template-columns:repeat(4,1fr)}.row-6{grid-template-columns:repeat(6,1fr)}}
+    /* ================= Header / Nav ================= */
+    header.sticky{position:sticky;top:0;z-index:30;backdrop-filter:blur(10px);background:rgba(7,11,26,.6);border-bottom:1px solid var(--ring)}
+    .nav{display:none;gap:26px;font-size:14px}
+    @media(min-width:980px){.nav{display:flex}.mobile{display:none}}
+    .logo-badge{display:flex;align-items:center;gap:10px}
+    .logo-img{height:28px;width:auto;filter: drop-shadow(0 0 20px rgba(47,124,246,.25));}
+    /* ================= Buttons ================= */
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;font-weight:600;font-size:14px}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#0a0f1f;box-shadow:0 0 0 1px rgba(255,255,255,.18) inset,0 10px 40px rgba(47,124,246,.35)}
+    .btn-ghost{border:1px solid var(--ring);color:#d1d5db}
+    .btn-outline{border:1px solid rgba(221,178,72,.45);color:#fcd34d;background:rgba(251,191,36,.06);box-shadow:0 0 0 1px rgba(251,191,36,.18) inset}
+    /* ================= Typography ================= */
+    .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .h1{font-size:clamp(34px,4.2vw,56px);line-height:1.08;font-weight:780;letter-spacing:-.02em;background:linear-gradient(180deg,#f4f7ff,#c4d4ff 55%,#a6c2ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .h2{font-size:clamp(26px,3vw,36px);font-weight:740;letter-spacing:-.02em;color:#f8fafc}
+    .h3{font-size:22px;font-weight:700;color:#f3f4f6}
+    .muted{color:var(--muted)}
+    /* ================= Cards & Panels ================= */
+    .panel{border:1px solid var(--ring);background:rgba(255,255,255,.03);border-radius:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+    .panel.pad{padding:22px}
+    .tile{transition:transform .25s ease, background .25s ease, box-shadow .25s ease}
+    .tile:hover{transform:translateY(-4px);background:rgba(255,255,255,.06);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+    /* ================= Stats & Gallery ================= */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;text-align:center}
+    .stat-box{background:var(--panel);padding:24px;border-radius:22px;border:1px solid var(--ring);box-shadow:0 4px 20px rgba(0,0,0,.35)}
+    .stat-box h3{font-size:40px;margin:0 0 6px;font-weight:760;background:linear-gradient(180deg,#f4f7ff,#c4d4ff 55%,#a6c2ff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .stat-box p{color:var(--muted);font-size:14px;margin:0}
+    .gallery{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    .gallery figure{margin:0;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+    .gallery img{border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,.5);height:auto}
+    .gallery figcaption{font-size:14px;color:var(--muted);line-height:1.4}
+    .promo-list{list-style:none;margin:0;padding:0;margin-top:16px;line-height:1.4;font-size:15px}
+    .promo-list li{margin-bottom:8px;position:relative;padding-left:22px}
+    .promo-list li::before{content:"";position:absolute;left:0;top:6px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+  </style>
+</head>
+<body>
+  <header class="sticky">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;height:68px">
+      <div class="logo-badge">
+        <img class='logo-img' alt='Evilo logo' src='data:image/png;base64,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'/>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Solutions</a>
+        <a href="software.html" class="active">Booking Software</a>
+        <a href="index.html#about">About</a>
+        <a href="legal.html">Legal & Compliance</a>
+      </nav>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="btn btn-ghost" href="index.html#contact">Contact</a>
+        <a class="btn btn-primary" href="index.html#demo">Book Demo</a>
+      </div>
+    </div>
+  </header>
+  <!-- ================= SOFTWARE HERO ================= -->
+  <section id="software-hero" class="hero">
+    <div class="container row row-2" style="align-items:center">
+      <div>
+        <span class="badge">Automated Customer Management</span>
+        <h1 class="h1" style="margin:18px 0 10px">Powerful AI‑Driven Operations</h1>
+        <p class="muted" style="max-width:640px">Evilo Software automates onboarding, scheduling, management, follow‑ups, and communications—all from a single platform that plugs directly into your website. Focus on caring for your customers while we handle the administration.</p>
+        <ul class="promo-list">
+          <li>Integrated AI assistant for seamless client interactions</li>
+          <li>Customizable schedules tailored to your team</li>
+          <li>Actionable analytics and insights</li>
+          <li>Easy two‑way communication (email, SMS & chat)</li>
+          <li>Customer directories & appointment histories</li>
+        </ul>
+        <div style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="index.html#demo">Book a Demo</a>
+          <a class="btn btn-outline" href="https://eviloportal.com/login">Login Portal</a>
+        </div>
+      </div>
+      <div>
+        <!-- Primary software screenshot -->
+        <img src="/assets/software/272dc87a-f733-4427-b9fe-b5a1450a40ef.webp" alt="Practice management dashboard showing a daily schedule and key metrics" style="border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,.5)">
+      </div>
+    </div>
+  </section>
+  <!-- ================= STATS ================= -->
+  <section id="stats">
+    <div class="container stats">
+      <div class="stat-box">
+        <h3>10+ hrs</h3>
+        <p>Admin work saved every week</p>
+      </div>
+      <div class="stat-box">
+        <h3>$250</h3>
+        <p>Approximate weekly labour cost savings</p>
+      </div>
+      <div class="stat-box">
+        <h3>$1K+</h3>
+        <p>Estimated monthly savings</p>
+      </div>
+    </div>
+  </section>
+  <!-- ================= GALLERY ================= -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="h2" style="text-align:center;margin-bottom:24px">Software Preview</h2>
+      <div class="gallery">
+        <figure>
+          <img src="/assets/software/272dc87a-f733-4427-b9fe-b5a1450a40ef.webp" alt="Dental practice dashboard and schedule">
+          <figcaption>Dashboard showing key metrics like daily appointments, weekly totals and patient counts, plus a detailed schedule for the day.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/software/239d3684-054b-4bf5-a8a7-4b81e290ef89.webp" alt="Client management and directory">
+          <figcaption>Client Management: search for clients, manage contact details and browse a directory with instant access to client profiles.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/software/4754adaf-40e7-4ac3-adf9-dc55d44e0e3b.webp" alt="Client communication interface">
+          <figcaption>Client Communication: select a patient, compose messages and view their inbox—all from one integrated hub.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/software/64692ba5-b6ed-455c-ae11-22f52d35ec40.webp" alt="Appointment calendar and list">
+          <figcaption>Appointment Calendar: schedule and view appointments by day, week or month, complete with time slots and quick actions.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/software/7d0ba046-1239-4f63-884e-aa5a51ce6c62.webp" alt="Service history and appointments">
+          <figcaption>Service History & Appointments: see an overview of completed visits, status and detailed history for each client.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/software/43ac1cc5-26b5-435e-b0f0-09d9c2ecc15e.webp" alt="Block calendar day and time form">
+          <figcaption>Block Calendar Day/Time: add events to block specific times, such as clinic closures, holidays or staff meetings.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/software/2f1359c6-0021-4016-a788-da8180862d7e.png" alt="AI chat assistant conversation">
+          <figcaption>AI Assistant Chat: a conversational interface that greets visitors and guides them through booking or support requests.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <!-- ================= FEATURES ================= -->
+  <!-- The features section has been removed as per user request -->
+  <!-- ================= CTA ================= -->
+  <section id="cta">
+    <div class="container panel pad" style="text-align:center">
+      <h2 class="h2" style="margin-bottom:16px">Ready to streamline your operations?</h2>
+      <p class="muted" style="max-width:640px;margin:0 auto 24px">Experience the difference Evilo Software can make—save time, reduce costs and delight your clients. Get started with a personalized demo today.</p>
+      <a class="btn btn-primary" href="index.html#contact">Request Demo</a>
+    </div>
+  </section>
+  <!-- ================= Chat Widget Script (Removed) ================= -->
+  <!-- Removed the React app script to ensure this page loads independently -->
+</body>
+</html>
