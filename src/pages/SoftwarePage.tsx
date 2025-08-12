@@ -109,6 +109,42 @@ const SoftwarePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Built for Regulated & High-Velocity Work */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Built for Regulated & High-Velocity Work
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
+              From HIPAA to safety audits to client memberships, Evilo adapts to your requirements while keeping 
+              interfaces simple.
+            </p>
+          </div>
+          
+          <div className="mb-8">
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
+              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">HIPAA & BAAs</span>
+              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">EHR/CRM & CMMS</span>
+              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">POS & Inventory</span>
+              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Role Permissions</span>
+              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">SLA & Reminders</span>
+              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Analytics API</span>
+            </div>
+          </div>
+
+          <div className="relative w-full max-w-6xl mx-auto">
+            <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 rounded-3xl border-2 border-red-500/60 p-8 min-h-[400px] flex items-center justify-center">
+              <img
+                src="/lovable-uploads/03f6f03d-ccb9-45f4-8158-4c2e705d07a0.png"
+                alt="AI workflow diagram showing integration capabilities"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
