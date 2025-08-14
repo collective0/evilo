@@ -134,15 +134,6 @@ const SoftwarePage = () => {
             </div>
           </div>
 
-          <div className="relative w-full max-w-6xl mx-auto">
-            <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 rounded-3xl border-2 border-red-500/60 p-8 min-h-[400px] flex items-center justify-center">
-              <img
-                src="/lovable-uploads/03f6f03d-ccb9-45f4-8158-4c2e705d07a0.png"
-                alt="AI workflow diagram showing integration capabilities"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-          </div>
         </div>
       </section>
     </div>
