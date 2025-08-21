@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Navigation from "@/components/Navigation";
 
 const SoftwarePage = () => {
   const handleBookDemo = () => {
@@ -23,7 +22,17 @@ const SoftwarePage = () => {
       </div>
       
       <div className="relative z-10">
-        <Navigation />
+        {/* Simple standalone header */}
+        <header className="absolute top-0 left-0 right-0 z-20 px-4 sm:px-6 lg:px-8 py-6">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="text-2xl font-bold text-foreground">
+              Evilo Software
+            </div>
+            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              Login Portal
+            </Button>
+          </div>
+        </header>
         
         {/* Hero Section */}
         <section className="pt-24 pb-12 relative">
