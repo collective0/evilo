@@ -3,12 +3,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const SoftwarePage = () => {
   const handleBookDemo = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/#contact';
-    }
+    // Handle demo booking - can be customized for software page specific action
+    console.log('Demo booking requested');
   };
 
   return (
