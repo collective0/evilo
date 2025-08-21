@@ -31,81 +31,49 @@ const Index = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/15">
-                <Sparkles className="w-3 h-3 mr-1" />
-                AI-Powered Scheduling & Operations
-              </Badge>
-              
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-                Evilo Software™
-                <span className="block text-3xl md:text-4xl mt-2">Automated Booking</span>
-                <span className="block text-3xl md:text-4xl text-primary">& Workflow Ops</span>
-              </h1>
-              
-              <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                Designed for clinics, industrial teams, and salons. Evilo's assistant 
-                plugs into your website to handle client details, scheduling, follow-ups, 
-                communication, and analytics.
-              </p>
+          <div className="text-center">
+            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/15">
+              <Sparkles className="w-3 h-3 mr-1" />
+              AI-Powered Scheduling & Operations
+            </Badge>
+            
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in max-w-4xl mx-auto">
+              Evilo Software™
+              <span className="block text-3xl md:text-4xl mt-2">Automated Booking</span>
+              <span className="block text-3xl md:text-4xl text-primary">& Workflow Operations</span>
+            </h1>
+            
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Designed for clinics, industrial teams, and salons. Evilo's assistant 
+              plugs into your website to handle client details, scheduling, follow-ups, 
+              communication, and analytics.
+            </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  Book Demo Meeting
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary/20 hover:bg-primary/10">
-                  Login Portal
-                </Button>
-              </div>
-
-              <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Zap className="w-4 h-4 text-primary" />
-                  <span>Data secure & hosted locally</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Shield className="w-4 h-4 text-primary" />
-                  <span>Enterprise grade security</span>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                Book Demo Meeting
+              </Button>
+              <Button size="lg" variant="outline" className="border-primary/20 hover:bg-primary/10">
+                Login Portal
+              </Button>
             </div>
 
-            <div className="relative">
-              <Card className="bg-card/80 backdrop-blur border-border/50 p-8">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold mb-2">Automated Customer Management</h3>
-                  <p className="text-lg text-primary">Solutions for the Salon Industry</p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Integrated AI assistant handles onboarding, scheduling, management, follow ups 
-                    and communication.
-                  </p>
-                </div>
-                
-                <div className="flex justify-center mb-4">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                    <div className="w-2 h-2 bg-primary/50 rounded-full"></div>
-                    <div className="w-2 h-2 bg-primary/30 rounded-full"></div>
-                    <div className="w-2 h-2 bg-primary/20 rounded-full"></div>
-                    <div className="w-2 h-2 bg-primary/10 rounded-full"></div>
-                  </div>
-                </div>
-
-                <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/30 flex items-center justify-center">
-                  <div className="text-center">
-                    <Sparkles className="w-12 h-12 text-primary mx-auto mb-2" />
-                    <p className="text-sm text-muted-foreground">Dashboard Preview</p>
-                  </div>
-                </div>
-              </Card>
+            <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-1">
+                <Zap className="w-4 h-4 text-primary" />
+                <span>Data secure & hosted locally</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Shield className="w-4 h-4 text-primary" />
+                <span>Enterprise grade security</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-card/30">
+      <section id="features" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
