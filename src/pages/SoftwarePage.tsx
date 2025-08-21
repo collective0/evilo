@@ -13,20 +13,11 @@ const SoftwarePage = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Animated background */}
-      <div className="fixed inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10">
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/3 to-secondary/5"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/3 to-secondary/3 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Navigation />
       
-      <div className="relative z-10">
-        <Navigation />
-        
-        {/* Hero Section */}
-        <section className="pt-24 pb-12 relative">
+      {/* Hero Section */}
+      <section className="pt-24 pb-12 bg-gradient-to-br from-primary/10 via-background to-accent/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -145,7 +136,6 @@ const SoftwarePage = () => {
 
         </div>
       </section>
-      </div>
     </div>
   );
 };
