@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Zap, Shield, Users, Calendar, BarChart3 } from "lucide-react";
+import { Sparkles, Zap, Shield, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -18,7 +19,7 @@ const Index = () => {
             </div>
             <nav className="flex items-center space-x-6">
               <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
-              <a href="#solutions" className="text-muted-foreground hover:text-foreground transition-colors">Solutions</a>
+              <Link to="/software" className="text-muted-foreground hover:text-foreground transition-colors">Software</Link>
               <Button variant="outline" className="border-primary/20 hover:bg-primary/10">Login Portal</Button>
               <Button className="bg-primary hover:bg-primary/90">Book Demo Meeting</Button>
             </nav>
@@ -46,8 +47,7 @@ const Index = () => {
               <p className="text-lg text-muted-foreground mb-8 max-w-xl">
                 Designed for clinics, industrial teams, and salons. Evilo's assistant 
                 plugs into your website to handle client details, scheduling, follow-ups, 
-                communication, and analytics. All plugged into our custom easy to use 
-                dashboard.
+                communication, and analytics.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -62,11 +62,11 @@ const Index = () => {
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <Zap className="w-4 h-4 text-primary" />
-                  <span>Data secure & hosted localy</span>
+                  <span>Data secure & hosted locally</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Shield className="w-4 h-4 text-primary" />
-                  <span>One-click enterprise grade</span>
+                  <span>Enterprise grade security</span>
                 </div>
               </div>
             </div>
@@ -94,7 +94,7 @@ const Index = () => {
 
                 <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border border-border/30 flex items-center justify-center">
                   <div className="text-center">
-                    <BarChart3 className="w-12 h-12 text-primary mx-auto mb-2" />
+                    <Sparkles className="w-12 h-12 text-primary mx-auto mb-2" />
                     <p className="text-sm text-muted-foreground">Dashboard Preview</p>
                   </div>
                 </div>
@@ -104,16 +104,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Operations Management Section */}
-      <section className="py-20 bg-card/30">
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-card/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Complete Operations Management
+              Why Choose Evilo?
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Everything you need to automate your business operations and provide 
-              exceptional customer experiences.
+              Streamline your business operations with intelligent automation and 
+              provide exceptional customer experiences.
             </p>
           </div>
 
@@ -121,12 +121,12 @@ const Index = () => {
             <Card className="group hover:shadow-lg transition-all duration-300 bg-card/50 border-border/50 hover:border-primary/20">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Calendar className="w-6 h-6 text-primary" />
+                  <Zap className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Smart Scheduling</CardTitle>
+                <CardTitle>Lightning Fast Setup</CardTitle>
                 <CardDescription>
-                  AI-powered appointment booking with automated conflict resolution and 
-                  intelligent time slot optimization.
+                  Get up and running in minutes with our plug-and-play integration. 
+                  No technical expertise required.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -134,12 +134,12 @@ const Index = () => {
             <Card className="group hover:shadow-lg transition-all duration-300 bg-card/50 border-border/50 hover:border-primary/20">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Users className="w-6 h-6 text-primary" />
+                  <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Customer Management</CardTitle>
+                <CardTitle>Enterprise Security</CardTitle>
                 <CardDescription>
-                  Comprehensive client profiles with automated follow-ups, 
-                  communication tracking, and personalized service recommendations.
+                  Bank-level encryption and compliance standards ensure your data 
+                  and customer information stays protected.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -147,12 +147,12 @@ const Index = () => {
             <Card className="group hover:shadow-lg transition-all duration-300 bg-card/50 border-border/50 hover:border-primary/20">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <BarChart3 className="w-6 h-6 text-primary" />
+                  <Sparkles className="w-6 h-6 text-primary" />
                 </div>
-                <CardTitle>Analytics & Insights</CardTitle>
+                <CardTitle>AI-Powered Intelligence</CardTitle>
                 <CardDescription>
-                  Real-time business intelligence with performance metrics, 
-                  trend analysis, and actionable growth recommendations.
+                  Smart algorithms learn from your business patterns to optimize 
+                  scheduling and customer interactions.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -165,19 +165,22 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Automate Your Operations?
+            Ready to Automate Your Business?
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Join businesses already using Evilo Software to streamline their workflow 
+            Join hundreds of businesses already using Evilo Software to streamline operations 
             and enhance customer satisfaction.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              Book Demo Meeting
+            <Button size="lg" className="bg-primary hover:bg-primary/90 group">
+              Get Started Today
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" className="border-primary/20 hover:bg-primary/10">
-              Login Portal
-            </Button>
+            <Link to="/software">
+              <Button size="lg" variant="outline" className="border-primary/20 hover:bg-primary/10 w-full">
+                Explore Software Features
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -199,20 +202,20 @@ const Index = () => {
             </div>
             
             <div>
-              <h3 className="font-semibold mb-3">Solutions</h3>
+              <h3 className="font-semibold mb-3">Platform</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">Salon Management</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Clinic Operations</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Industrial Teams</a></li>
+                <li><Link to="/software" className="hover:text-foreground transition-colors">Software</Link></li>
+                <li><a href="#features" className="hover:text-foreground transition-colors">Features</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Pricing</a></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="font-semibold mb-3">Platform</h3>
+              <h3 className="font-semibold mb-3">Solutions</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Integrations</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">API</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Salons</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Clinics</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Industrial</a></li>
               </ul>
             </div>
             
